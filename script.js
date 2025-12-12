@@ -19,7 +19,45 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Add interactive elements
     initInteractiveElements();
+
+    // Highlight active section on scroll
+    initActiveSectionHighlight();
+
+    // Back-to-top button
+    initBackToTop();
 });
+
+function getRandomInt(maxExclusive) {
+    if (maxExclusive <= 0) return 0;
+    if (window.crypto && window.crypto.getRandomValues) {
+        const uint32 = new Uint32Array(1);
+        const limit = Math.floor(0x100000000 / maxExclusive) * maxExclusive;
+        let value = 0;
+        do {
+            window.crypto.getRandomValues(uint32);
+            value = uint32[0];
+        } while (value >= limit);
+        return value % maxExclusive;
+    }
+    return Math.floor(Math.random() * maxExclusive);
+}
+
+function shuffleInPlace(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = getRandomInt(i + 1);
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
+}
+
+function resetPasswordStrength() {
+    const strengthBar = document.getElementById('strengthBar');
+    if (!strengthBar) return;
+    strengthBar.style.width = '0%';
+    strengthBar.className = 'progress-bar bg-secondary';
+    strengthBar.textContent = '—';
+    strengthBar.setAttribute('aria-valuenow', '0');
+}
 
 // Password Generator Functions
 function generatePassword() {
@@ -29,21 +67,35 @@ function generatePassword() {
     const includeNumbers = document.getElementById('numbers').checked;
     const includeSymbols = document.getElementById('symbols').checked;
 
-    let charset = '';
-    if (includeUppercase) charset += 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-    if (includeLowercase) charset += 'abcdefghijklmnopqrstuvwxyz';
-    if (includeNumbers) charset += '0123456789';
-    if (includeSymbols) charset += '!@#$%^&*()_+-=[]{}|;:,.<>?';
+    const pools = [];
+    if (includeUppercase) pools.push('ABCDEFGHIJKLMNOPQRSTUVWXYZ');
+    if (includeLowercase) pools.push('abcdefghijklmnopqrstuvwxyz');
+    if (includeNumbers) pools.push('0123456789');
+    if (includeSymbols) pools.push('!@#$%^&*()_+-=[]{}|;:,.<>?');
 
-    if (charset === '') {
+    if (pools.length === 0) {
+        document.getElementById('generatedPassword').value = '';
+        resetPasswordStrength();
         showAlert('Por favor selecciona al menos un tipo de carácter', 'warning');
         return;
     }
 
-    let password = '';
-    for (let i = 0; i < length; i++) {
-        password += charset.charAt(Math.floor(Math.random() * charset.length));
+    const desiredLength = Math.max(8, Math.min(32, parseInt(length, 10) || 16));
+    const allChars = pools.join('');
+    const passwordChars = [];
+
+    // Ensure at least one from each selected pool
+    pools.forEach(pool => {
+        passwordChars.push(pool.charAt(getRandomInt(pool.length)));
+    });
+
+    // Fill remaining with all chars
+    while (passwordChars.length < desiredLength) {
+        passwordChars.push(allChars.charAt(getRandomInt(allChars.length)));
     }
+
+    shuffleInPlace(passwordChars);
+    const password = passwordChars.join('');
 
     document.getElementById('generatedPassword').value = password;
     updatePasswordStrength(password);
@@ -73,22 +125,25 @@ function updatePasswordStrength(password) {
 
     // Update progress bar
     strengthBar.style.width = strength + '%';
+    strengthBar.setAttribute('aria-valuenow', String(strength));
 
     // Change color based on strength
     strengthBar.className = 'progress-bar';
+    let label = '—';
     if (strength < 40) {
         strengthBar.classList.add('bg-danger');
-        strengthBar.textContent = 'Débil';
+        label = 'Débil';
     } else if (strength < 70) {
         strengthBar.classList.add('bg-warning');
-        strengthBar.textContent = 'Media';
+        label = 'Media';
     } else if (strength < 90) {
         strengthBar.classList.add('bg-info');
-        strengthBar.textContent = 'Fuerte';
+        label = 'Fuerte';
     } else {
         strengthBar.classList.add('bg-success');
-        strengthBar.textContent = 'Muy Fuerte';
+        label = 'Muy Fuerte';
     }
+    strengthBar.textContent = `${label} (${strength}%)`;
 }
 
 function copyPassword() {
@@ -100,21 +155,39 @@ function copyPassword() {
         return;
     }
 
-    // Copy to clipboard
-    navigator.clipboard.writeText(password).then(() => {
+    const showCopied = () => {
         showAlert('¡Contraseña copiada al portapapeles!', 'success');
-
-        // Visual feedback
         passwordField.classList.add('animate__animated', 'animate__headShake');
         setTimeout(() => {
             passwordField.classList.remove('animate__animated', 'animate__headShake');
         }, 1000);
-    }).catch(() => {
-        // Fallback for older browsers
-        passwordField.select();
-        document.execCommand('copy');
-        showAlert('¡Contraseña copiada al portapapeles!', 'success');
-    });
+    };
+
+    // Prefer modern clipboard API in secure contexts
+    if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(password).then(showCopied).catch(() => {
+            fallbackCopyToClipboard(passwordField, showCopied);
+        });
+        return;
+    }
+
+    fallbackCopyToClipboard(passwordField, showCopied);
+}
+
+function fallbackCopyToClipboard(inputEl, onSuccess) {
+    try {
+        inputEl.removeAttribute('readonly');
+        inputEl.select();
+        inputEl.setSelectionRange(0, inputEl.value.length);
+        const ok = document.execCommand('copy');
+        inputEl.setAttribute('readonly', 'readonly');
+        window.getSelection?.().removeAllRanges?.();
+        if (ok) onSuccess();
+        else showAlert('No se pudo copiar automáticamente. Selecciona y copia manualmente.', 'warning');
+    } catch {
+        inputEl.setAttribute('readonly', 'readonly');
+        showAlert('No se pudo copiar automáticamente. Selecciona y copia manualmente.', 'warning');
+    }
 }
 
 function updateLength() {
@@ -169,19 +242,31 @@ function getAlertIcon(type) {
 function initSmoothScrolling() {
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                const offsetTop = target.offsetTop - 70; // Account for fixed navbar
-                window.scrollTo({
-                    top: offsetTop,
-                    behavior: 'smooth'
-                });
+            const href = this.getAttribute('href');
+            if (!href) return;
 
-                // Update active nav link
-                document.querySelectorAll('.nav-link').forEach(link => {
-                    link.classList.remove('active');
-                });
+            // Allow harmless "#" links (common for placeholders)
+            if (href === '#') {
+                e.preventDefault();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                return;
+            }
+
+            let target = null;
+            try {
+                target = document.querySelector(href);
+            } catch {
+                return;
+            }
+            if (!target) return;
+
+            e.preventDefault();
+            const offsetTop = target.offsetTop - 70; // Account for fixed navbar
+            window.scrollTo({ top: offsetTop, behavior: 'smooth' });
+
+            // Only mark nav links active (avoid adding .active to buttons)
+            if (this.classList.contains('nav-link')) {
+                document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
                 this.classList.add('active');
             }
         });
@@ -235,17 +320,6 @@ function initTooltips() {
 
 // Interactive Elements
 function initInteractiveElements() {
-    // Add hover effects to cards
-    document.querySelectorAll('.card').forEach(card => {
-        card.addEventListener('mouseenter', function() {
-            this.style.transform = 'translateY(-5px) scale(1.02)';
-        });
-
-        card.addEventListener('mouseleave', function() {
-            this.style.transform = 'translateY(0) scale(1)';
-        });
-    });
-
     // Add click feedback to buttons
     document.querySelectorAll('.btn').forEach(button => {
         button.addEventListener('click', function(e) {
@@ -287,14 +361,13 @@ function startSecurityTips() {
         "🔒 Nunca compartas tus contraseñas con nadie",
         "📱 Revisa regularmente la configuración de privacidad",
         "🔍 Desconfía de mensajes y enlaces sospechosos",
-        "🌐 Mantén tus aplicaciones y navegador actualizados",
+        "🌐 Mantén tus apps y navegador actualizados",
         "👁️ Sé cuidadoso con lo que compartes online",
         "🚫 No aceptes solicitudes de amistad de desconocidos"
     ];
 
     let currentTip = 0;
 
-    // You can add a tip container to the HTML if you want this feature
     function showNextTip() {
         const tipContainer = document.getElementById('security-tip');
         if (tipContainer) {
@@ -307,6 +380,7 @@ function startSecurityTips() {
         }
     }
 
+    showNextTip();
     // Change tip every 10 seconds
     setInterval(showNextTip, 10000);
 }
@@ -342,13 +416,60 @@ function trackEvent(action, category = 'interaction') {
 // Performance Monitoring
 function logPerformance() {
     if ('performance' in window) {
-        const perfData = performance.getEntriesByType('navigation')[0];
-        console.log(`Page load time: ${perfData.loadEventEnd - perfData.fetchStart}ms`);
+        const navEntries = performance.getEntriesByType?.('navigation') || [];
+        const perfData = navEntries[0];
+        if (perfData && typeof perfData.loadEventEnd === 'number' && typeof perfData.fetchStart === 'number') {
+            console.log(`Page load time: ${perfData.loadEventEnd - perfData.fetchStart}ms`);
+        }
     }
 }
 
 // Log performance after page load
 window.addEventListener('load', logPerformance);
+
+function initActiveSectionHighlight() {
+    const navLinks = Array.from(document.querySelectorAll('.navbar .nav-link[href^="#"]'));
+    const sectionIds = navLinks
+        .map(link => link.getAttribute('href'))
+        .filter(Boolean)
+        .filter(href => href !== '#')
+        .map(href => href.slice(1));
+
+    const sections = sectionIds
+        .map(id => document.getElementById(id))
+        .filter(Boolean);
+
+    if (sections.length === 0 || navLinks.length === 0) return;
+
+    const observer = new IntersectionObserver((entries) => {
+        const visible = entries
+            .filter(e => e.isIntersecting)
+            .sort((a, b) => (b.intersectionRatio || 0) - (a.intersectionRatio || 0))[0];
+
+        if (!visible || !visible.target?.id) return;
+        const id = visible.target.id;
+
+        navLinks.forEach(link => {
+            const href = link.getAttribute('href') || '';
+            link.classList.toggle('active', href === `#${id}`);
+        });
+    }, { threshold: 0.25, rootMargin: '-20% 0px -60% 0px' });
+
+    sections.forEach(section => observer.observe(section));
+}
+
+function initBackToTop() {
+    const btn = document.getElementById('backToTop');
+    if (!btn) return;
+
+    const update = () => {
+        btn.classList.toggle('is-visible', window.scrollY > 600);
+    };
+
+    update();
+    window.addEventListener('scroll', update, { passive: true });
+    btn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+}
 
 // Add CSS animation for ripple effect
 const style = document.createElement('style');

@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CiberConsejos - Tu Guía de Seguridad Digital</title>
 
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome -->
@@ -18,6 +23,7 @@
     <meta name="description" content="Guía completa de ciberseguridad: consejos para redes sociales, TikTok, protección online y herramientas de seguridad">
     <meta name="keywords" content="ciberseguridad, seguridad digital, redes sociales, TikTok, protección online">
     <meta name="author" content="CiberConsejos">
+    <meta name="theme-color" content="#0b1220">
 
     <!-- Open Graph meta tags -->
     <meta property="og:title" content="CiberConsejos - Tu Guía de Seguridad Digital">
@@ -25,13 +31,15 @@
     <meta property="og:type" content="website">
 </head>
 <body>
+    <a class="skip-link" href="#home">Saltar al contenido</a>
+
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
         <div class="container">
             <a class="navbar-brand" href="#home">
                 <i class="fas fa-shield-alt text-primary"></i> CiberConsejos
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Abrir navegación">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
@@ -70,6 +78,9 @@
                     <a href="#password-generator" class="btn btn-outline-light btn-lg">
                         <i class="fas fa-key"></i> Generar Contraseña
                     </a>
+                </div>
+                <div class="mt-4 d-flex justify-content-center">
+                    <div id="security-tip" class="security-tip" aria-live="polite"></div>
                 </div>
             </div>
         </div>
@@ -319,12 +330,12 @@
                             <div class="row mb-4">
                                 <div class="col-md-6">
                                     <label class="form-label">Longitud: <span id="lengthValue">16</span></label>
-                                    <input type="range" class="form-range" id="passwordLength" min="8" max="32" value="16" onchange="updateLength()">
+                                    <input type="range" class="form-range" id="passwordLength" min="8" max="32" value="16" oninput="updateLength()">
                                 </div>
                                 <div class="col-md-6">
                                     <label class="form-label">Fortaleza:</label>
                                     <div class="progress">
-                                        <div id="strengthBar" class="progress-bar bg-success" style="width: 0%">0%</div>
+                                        <div id="strengthBar" class="progress-bar bg-success" style="width: 0%" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">—</div>
                                     </div>
                                 </div>
                             </div>
@@ -516,16 +527,21 @@
                 </div>
                 <div class="col-md-6 text-center text-md-end">
                     <div class="social-links">
-                        <a href="#" class="text-white me-3"><i class="fab fa-github fa-lg"></i></a>
-                        <a href="#" class="text-white me-3"><i class="fab fa-twitter fa-lg"></i></a>
-                        <a href="#" class="text-white me-3"><i class="fab fa-instagram fa-lg"></i></a>
-                        <a href="#" class="text-white"><i class="fab fa-youtube fa-lg"></i></a>
+                        <a href="#" class="text-white me-3" aria-label="GitHub"><i class="fab fa-github fa-lg"></i></a>
+                        <a href="#" class="text-white me-3" aria-label="X / Twitter"><i class="fab fa-twitter fa-lg"></i></a>
+                        <a href="#" class="text-white me-3" aria-label="Instagram"><i class="fab fa-instagram fa-lg"></i></a>
+                        <a href="#" class="text-white" aria-label="YouTube"><i class="fab fa-youtube fa-lg"></i></a>
                     </div>
                     <p class="mt-2 mb-0">© 2024 CiberConsejos. Todos los derechos reservados.</p>
                 </div>
             </div>
         </div>
     </footer>
+
+    <!-- Back to top -->
+    <button id="backToTop" class="btn btn-primary back-to-top" type="button" aria-label="Volver arriba">
+        <i class="fas fa-arrow-up"></i>
+    </button>
 
     <!-- Modal for Channels -->
     <div class="modal fade" id="channelsModal" tabindex="-1">
