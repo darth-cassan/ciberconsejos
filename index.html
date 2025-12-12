@@ -66,43 +66,90 @@
 
     <!-- Hero Section -->
     <section id="home" class="hero-section">
-        <div class="container text-center">
-            <div class="hero-content animate__animated animate__fadeInUp">
-                <i class="fas fa-shield-alt fa-4x text-primary mb-4"></i>
-                <h1 class="display-4 fw-bold text-white mb-4">CiberConsejos</h1>
-                <p class="lead text-white mb-4">Tu guía definitiva para navegar seguro en el mundo digital</p>
-                <div class="d-flex justify-content-center gap-3">
-                    <a href="#redes-sociales" class="btn btn-primary btn-lg">
-                        <i class="fas fa-users"></i> Seguridad en Redes
-                    </a>
-                    <a href="#password-generator" class="btn btn-outline-light btn-lg">
-                        <i class="fas fa-key"></i> Generar Contraseña
-                    </a>
+        <div class="container">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-7">
+                    <div class="hero-content animate__animated animate__fadeInUp text-center text-lg-start">
+                        <div class="hero-kicker mb-4">
+                            <i class="fas fa-shield-alt"></i>
+                            Consejos claros • Herramientas útiles • Recursos oficiales
+                        </div>
+
+                        <h1 class="display-4 fw-bold text-white mb-3">CiberConsejos</h1>
+                        <p class="lead text-white-50 mb-4">Aprende a proteger tu privacidad, tus cuentas y tu identidad digital con buenas prácticas fáciles de aplicar.</p>
+
+                        <div class="d-flex flex-wrap justify-content-center justify-content-lg-start gap-3">
+                            <a href="#redes-sociales" class="btn btn-primary btn-lg">
+                                <i class="fas fa-users"></i> Redes Sociales
+                            </a>
+                            <a href="#password-generator" class="btn btn-outline-light btn-lg">
+                                <i class="fas fa-key"></i> Generar Contraseña
+                            </a>
+                            <a href="#ayuda" class="btn btn-outline-light btn-lg">
+                                <i class="fas fa-life-ring"></i> Pedir Ayuda
+                            </a>
+                        </div>
+
+                        <div class="mt-4 d-flex justify-content-center justify-content-lg-start">
+                            <div id="security-tip" class="security-tip" aria-live="polite"></div>
+                        </div>
+                    </div>
                 </div>
-                <div class="mt-4 d-flex justify-content-center">
-                    <div id="security-tip" class="security-tip" aria-live="polite"></div>
+
+                <div class="col-lg-5">
+                    <div class="hero-panel animate__animated animate__fadeInRight">
+	                        <div class="hero-panel-header">
+	                            <p class="hero-panel-title">Checklist rápido</p>
+	                        </div>
+                        <div class="hero-panel-body">
+                            <div class="d-grid gap-3">
+                                <div class="hero-mini-metric">
+                                    <i class="fas fa-user-lock"></i>
+                                    <div>
+                                        <strong>Activa 2FA</strong>
+                                        <small>Bloquea accesos incluso si filtran tu contraseña.</small>
+                                    </div>
+                                </div>
+                                <div class="hero-mini-metric">
+                                    <i class="fas fa-fingerprint"></i>
+                                    <div>
+                                        <strong>Privacidad al día</strong>
+                                        <small>Revisa permisos, etiquetas y quién ve tu perfil.</small>
+                                    </div>
+                                </div>
+                                <div class="hero-mini-metric">
+                                    <i class="fas fa-link"></i>
+                                    <div>
+                                        <strong>Evita phishing</strong>
+                                        <small>Comprueba URLs antes de iniciar sesión o pagar.</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Social Media Security Section -->
-    <section id="redes-sociales" class="py-5 bg-light">
+    <section id="redes-sociales" class="py-5 bg-light section-surface">
         <div class="container">
-            <div class="text-center mb-5">
-                <h2 class="display-5 fw-bold text-primary">Seguridad en Redes Sociales</h2>
-                <p class="lead text-muted">Protege tu vida digital con estos consejos expertos</p>
+            <div class="section-header">
+                <div class="section-eyebrow"><i class="fas fa-users"></i> Redes sociales</div>
+                <h2 class="section-title">Seguridad en redes sociales</h2>
+                <p class="section-subtitle">Protege tu vida digital con hábitos simples que realmente funcionan.</p>
             </div>
 
             <div class="row g-4">
                 <!-- TikTok Security -->
                 <div class="col-lg-6 col-md-12">
                     <div class="card h-100 social-card animate__animated animate__fadeInLeft">
-                        <div class="card-header bg-dark text-white">
+                        <div class="card-header header-slate">
                             <i class="fab fa-tiktok"></i> Seguridad en TikTok
                         </div>
                         <div class="card-body">
-                            <h5 class="card-title text-primary">Protección en TikTok</h5>
+                            <h5 class="card-title">Protección en TikTok</h5>
                             <ul class="list-unstyled">
                                 <li class="mb-2">
                                     <i class="fas fa-check-circle text-success"></i>
@@ -132,11 +179,11 @@
                 <!-- General Social Media -->
                 <div class="col-lg-6 col-md-12">
                     <div class="card h-100 social-card animate__animated animate__fadeInRight">
-                        <div class="card-header bg-primary text-white">
+                        <div class="card-header header-indigo">
                             <i class="fas fa-share-alt"></i> Redes Sociales en General
                         </div>
                         <div class="card-body">
-                            <h5 class="card-title text-primary">Buenas Prácticas Universales</h5>
+                            <h5 class="card-title">Buenas prácticas universales</h5>
                             <ul class="list-unstyled">
                                 <li class="mb-2">
                                     <i class="fas fa-check-circle text-success"></i>
@@ -168,7 +215,7 @@
             <div class="row mt-4">
                 <div class="col-12">
                     <div class="card threat-card animate__animated animate__fadeInUp">
-                        <div class="card-header bg-danger text-white">
+                        <div class="card-header header-danger">
                             <i class="fas fa-exclamation-triangle"></i> Amenazas Comunes en Redes Sociales
                         </div>
                         <div class="card-body">
@@ -203,11 +250,12 @@
     </section>
 
     <!-- Resources Section -->
-    <section id="recursos" class="py-5">
+    <section id="recursos" class="py-5 section-surface">
         <div class="container">
-            <div class="text-center mb-5">
-                <h2 class="display-5 fw-bold text-primary">Recursos de Ciberseguridad</h2>
-                <p class="lead text-muted">Fuentes confiables para aprender más y pedir ayuda</p>
+            <div class="section-header">
+                <div class="section-eyebrow"><i class="fas fa-book"></i> Recursos</div>
+                <h2 class="section-title">Recursos de ciberseguridad</h2>
+                <p class="section-subtitle">Fuentes fiables para aprender más, verificar información y pedir ayuda.</p>
             </div>
 
             <div class="row g-4">
@@ -215,7 +263,9 @@
                 <div class="col-lg-4 col-md-6">
                     <div class="card resource-card h-100 animate__animated animate__fadeInUp">
                         <div class="card-body text-center">
-                            <i class="fas fa-shield-alt fa-3x text-primary mb-3"></i>
+                            <div class="d-flex justify-content-center mb-3">
+                                <span class="icon-badge"><i class="fas fa-shield-alt"></i></span>
+                            </div>
                             <h5 class="card-title">INCIBE</h5>
                             <p class="card-text">Instituto Nacional de Ciberseguridad de España</p>
                             <a href="https://www.incibe.es" target="_blank" class="btn btn-primary">
@@ -229,7 +279,9 @@
                 <div class="col-lg-4 col-md-6">
                     <div class="card resource-card h-100 animate__animated animate__fadeInUp" style="animation-delay: 0.1s">
                         <div class="card-body text-center">
-                            <i class="fab fa-youtube fa-3x text-danger mb-3"></i>
+                            <div class="d-flex justify-content-center mb-3">
+                                <span class="icon-badge"><i class="fab fa-youtube"></i></span>
+                            </div>
                             <h5 class="card-title">Canales Educativos</h5>
                             <p class="card-text">Contenido educativo sobre ciberseguridad</p>
                             <button class="btn btn-danger" onclick="showChannels()">
@@ -243,7 +295,9 @@
                 <div class="col-lg-4 col-md-6">
                     <div class="card resource-card h-100 animate__animated animate__fadeInUp" style="animation-delay: 0.2s">
                         <div class="card-body text-center">
-                            <i class="fas fa-hands-helping fa-3x text-success mb-3"></i>
+                            <div class="d-flex justify-content-center mb-3">
+                                <span class="icon-badge"><i class="fas fa-hands-helping"></i></span>
+                            </div>
                             <h5 class="card-title">Centros de Ayuda</h5>
                             <p class="card-text">Dónde reportar ciberdelitos y pedir ayuda</p>
                             <button class="btn btn-success" onclick="showHelpCenters()">
@@ -258,7 +312,7 @@
             <div class="row mt-4">
                 <div class="col-12">
                     <div class="card">
-                        <div class="card-header bg-info text-white">
+                        <div class="card-header header-info">
                             <i class="fas fa-graduation-cap"></i> Webs Educativas Recomendadas
                         </div>
                         <div class="card-body">
@@ -304,17 +358,35 @@
     </section>
 
     <!-- Password Generator Section -->
-    <section id="password-generator" class="py-5 bg-light">
+    <section id="password-generator" class="py-5 bg-light section-surface">
         <div class="container">
-            <div class="text-center mb-5">
-                <h2 class="display-5 fw-bold text-primary">Generador de Contraseñas Seguras</h2>
-                <p class="lead text-muted">Crea contraseñas fuertes e imposibles de adivinar</p>
+            <div class="section-header">
+                <div class="section-eyebrow"><i class="fas fa-key"></i> Herramienta</div>
+                <h2 class="section-title">Generador de contraseñas seguras</h2>
+                <p class="section-subtitle">Crea contraseñas fuertes y únicas. Copia con un clic y revisa la fortaleza en tiempo real.</p>
             </div>
 
-            <div class="row justify-content-center">
-                <div class="col-lg-8">
+            <div class="row g-4 align-items-start">
+                <div class="col-lg-5">
+                    <div class="card h-100 animate__animated animate__fadeInLeft">
+                        <div class="card-header header-indigo">
+                            <i class="fas fa-shield-alt"></i> Recomendación rápida
+                        </div>
+                        <div class="card-body">
+                            <p class="mb-3 text-muted">Para cuentas importantes (correo, banca, redes), prioriza esto:</p>
+                            <ul class="list-unstyled mb-0">
+                                <li class="mb-2"><i class="fas fa-check-circle text-success"></i> 16+ caracteres</li>
+                                <li class="mb-2"><i class="fas fa-check-circle text-success"></i> Mezcla letras, números y símbolos</li>
+                                <li class="mb-2"><i class="fas fa-check-circle text-success"></i> 1 contraseña distinta por servicio</li>
+                                <li class="mb-0"><i class="fas fa-check-circle text-success"></i> Activa 2FA siempre que puedas</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-7">
                     <div class="card password-generator-card animate__animated animate__fadeInUp">
-                        <div class="card-header bg-dark text-white">
+                        <div class="card-header header-slate">
                             <i class="fas fa-key"></i> Generador de Contraseñas
                         </div>
                         <div class="card-body">
@@ -375,15 +447,15 @@
                                 </div>
                             </div>
 
-                            <div class="text-center mt-4">
+                            <div class="d-flex flex-wrap justify-content-center justify-content-md-end gap-2 mt-4">
                                 <button class="btn btn-success btn-lg" onclick="generatePassword()">
-                                    <i class="fas fa-sync-alt"></i> Generar Contraseña
+                                    <i class="fas fa-sync-alt"></i> Generar
                                 </button>
                             </div>
 
-                            <div class="alert alert-info mt-3">
+                            <div class="alert alert-info mt-3 mb-0">
                                 <i class="fas fa-info-circle"></i>
-                                <strong>Tip profesional:</strong> Usa una contraseña única para cada sitio web y nunca la compartas con nadie.
+                                <strong>Tip profesional:</strong> Usa un gestor de contraseñas para no reutilizar claves.
                             </div>
                         </div>
                     </div>
@@ -393,22 +465,23 @@
     </section>
 
     <!-- Help Section -->
-    <section id="ayuda" class="py-5">
+    <section id="ayuda" class="py-5 section-surface">
         <div class="container">
-            <div class="text-center mb-5">
-                <h2 class="display-5 fw-bold text-primary">¿Dónde Pedir Ayuda?</h2>
-                <p class="lead text-muted">Recursos oficiales para reportar y recibir ayuda</p>
+            <div class="section-header">
+                <div class="section-eyebrow"><i class="fas fa-life-ring"></i> Ayuda</div>
+                <h2 class="section-title">¿Dónde pedir ayuda?</h2>
+                <p class="section-subtitle">Si estás sufriendo acoso, suplantación o fraude, aquí tienes recursos oficiales para actuar rápido.</p>
             </div>
 
             <div class="row g-4">
                 <!-- Emergency Contacts -->
                 <div class="col-lg-6">
                     <div class="card h-100 help-card animate__animated animate__fadeInLeft">
-                        <div class="card-header bg-danger text-white">
+                        <div class="card-header header-danger">
                             <i class="fas fa-phone-alt"></i> Contactos de Emergencia
                         </div>
                         <div class="card-body">
-                            <h5 class="card-title text-danger">En Caso de Emergencia</h5>
+                            <h5 class="card-title">En caso de emergencia</h5>
                             <div class="emergency-contact">
                                 <i class="fas fa-shield-alt text-danger"></i>
                                 <div>
@@ -434,35 +507,44 @@
                 <!-- Online Help -->
                 <div class="col-lg-6">
                     <div class="card h-100 help-card animate__animated animate__fadeInRight">
-                        <div class="card-header bg-info text-white">
+                        <div class="card-header header-info">
                             <i class="fas fa-laptop"></i> Ayuda Online
                         </div>
                         <div class="card-body">
-                            <h5 class="card-title text-info">Plataformas Digitales de Ayuda</h5>
-                            <ul class="list-unstyled">
-                                <li class="mb-2">
-                                    <i class="fas fa-globe text-info"></i>
-                                    <strong>www.internetsinscandidad.es</strong> - Ayuda para víctimas de ciberacoso
-                                </li>
-                                <li class="mb-2">
-                                    <i class="fas fa-globe text-info"></i>
-                                    <strong>www.ciberseguridad.es</strong> - Portal oficial de ciberseguridad
-                                </li>
-                                <li class="mb-2">
-                                    <i class="fas fa-globe text-info"></i>
-                                    <strong>www.confianzaenlared.es</strong> - Recursos para niños y padres
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+	                            <h5 class="card-title">Plataformas digitales de ayuda</h5>
+	                            <ul class="list-unstyled">
+	                                <li class="mb-2">
+	                                    <i class="fas fa-globe text-info"></i>
+	                                    <strong>
+	                                        <a class="link-primary text-decoration-none" href="https://www.internetsinscandidad.es" target="_blank" rel="noopener noreferrer">www.internetsinscandidad.es</a>
+	                                    </strong>
+	                                    - Ayuda para víctimas de ciberacoso
+	                                </li>
+	                                <li class="mb-2">
+	                                    <i class="fas fa-globe text-info"></i>
+	                                    <strong>
+	                                        <a class="link-primary text-decoration-none" href="https://www.ciberseguridad.es" target="_blank" rel="noopener noreferrer">www.ciberseguridad.es</a>
+	                                    </strong>
+	                                    - Portal oficial de ciberseguridad
+	                                </li>
+	                                <li class="mb-2">
+	                                    <i class="fas fa-globe text-info"></i>
+	                                    <strong>
+	                                        <a class="link-primary text-decoration-none" href="https://www.confianzaenlared.es" target="_blank" rel="noopener noreferrer">www.confianzaenlared.es</a>
+	                                    </strong>
+	                                    - Recursos para niños y padres
+	                                </li>
+	                            </ul>
+	                        </div>
+	                    </div>
+	                </div>
             </div>
 
             <!-- What to Report -->
             <div class="row mt-4">
                 <div class="col-12">
                     <div class="card">
-                        <div class="card-header bg-warning text-dark">
+                        <div class="card-header header-warning">
                             <i class="fas fa-exclamation-triangle"></i> ¿Qué Debes Denunciar?
                         </div>
                         <div class="card-body">
@@ -547,7 +629,7 @@
     <div class="modal fade" id="channelsModal" tabindex="-1">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
-                <div class="modal-header bg-primary text-white">
+                <div class="modal-header header-indigo">
                     <h5 class="modal-title"><i class="fab fa-youtube"></i> Canales Educativos de Ciberseguridad</h5>
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
                 </div>
@@ -575,7 +657,7 @@
     <div class="modal fade" id="helpCentersModal" tabindex="-1">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
-                <div class="modal-header bg-success text-white">
+                <div class="modal-header header-success">
                     <h5 class="modal-title"><i class="fas fa-hands-helping"></i> Centros de Ayuda</h5>
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
                 </div>
@@ -587,16 +669,25 @@
                         <li><strong>Guardia Civil:</strong> 062 (ciberdelitos)</li>
                     </ul>
 
-                    <h6 class="text-success">Internacional:</h6>
-                    <ul>
-                        <li><strong>CyberTipline (EEUU):</strong> www.cybertipline.com</li>
-                        <li><strong>CEOP (UK):</strong> www.ceop.police.uk</li>
-                        <li><strong>Australian eSafety:</strong> www.esafety.gov.au</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
+	                    <h6 class="text-success">Internacional:</h6>
+	                    <ul>
+	                        <li>
+	                            <strong>CyberTipline (EEUU):</strong>
+	                            <a class="link-primary text-decoration-none" href="https://www.cybertipline.com" target="_blank" rel="noopener noreferrer">www.cybertipline.com</a>
+	                        </li>
+	                        <li>
+	                            <strong>CEOP (UK):</strong>
+	                            <a class="link-primary text-decoration-none" href="https://www.ceop.police.uk" target="_blank" rel="noopener noreferrer">www.ceop.police.uk</a>
+	                        </li>
+	                        <li>
+	                            <strong>Australian eSafety:</strong>
+	                            <a class="link-primary text-decoration-none" href="https://www.esafety.gov.au" target="_blank" rel="noopener noreferrer">www.esafety.gov.au</a>
+	                        </li>
+	                    </ul>
+	                </div>
+	            </div>
+	        </div>
+	    </div>
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>

@@ -278,11 +278,11 @@ function initNavbarScroll() {
     const navbar = document.querySelector('.navbar');
     window.addEventListener('scroll', () => {
         if (window.scrollY > 50) {
-            navbar.style.backgroundColor = 'rgba(52, 58, 64, 0.98)';
-            navbar.style.boxShadow = '0 4px 30px rgba(0, 0, 0, 0.1)';
+            navbar.style.backgroundColor = 'rgba(11, 18, 32, 0.88)';
+            navbar.style.boxShadow = '0 14px 40px rgba(0, 0, 0, 0.22)';
         } else {
-            navbar.style.backgroundColor = 'rgba(52, 58, 64, 0.95)';
-            navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+            navbar.style.backgroundColor = 'rgba(11, 18, 32, 0.78)';
+            navbar.style.boxShadow = '0 8px 28px rgba(0, 0, 0, 0.16)';
         }
     });
 }
@@ -351,6 +351,40 @@ function initInteractiveElements() {
 
     // Add security tips rotation
     startSecurityTips();
+
+    // Make resource cards clickable (like their internal button/link)
+    initClickableResourceCards();
+}
+
+function initClickableResourceCards() {
+    const cards = document.querySelectorAll('.resource-card');
+    if (!cards.length) return;
+
+    cards.forEach(card => {
+        card.setAttribute('role', 'button');
+        card.setAttribute('tabindex', '0');
+
+        const activate = () => {
+            const primaryAction =
+                card.querySelector('a.btn[href]') ||
+                card.querySelector('button.btn') ||
+                card.querySelector('a[href]');
+            if (primaryAction) primaryAction.click();
+        };
+
+        card.addEventListener('click', (e) => {
+            const target = e.target;
+            if (target && target.closest && target.closest('a,button,input,select,textarea,label')) return;
+            activate();
+        });
+
+        card.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                activate();
+            }
+        });
+    });
 }
 
 // Security Tips Rotation
