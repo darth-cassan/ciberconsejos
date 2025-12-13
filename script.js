@@ -11,9 +11,6 @@ document.addEventListener('DOMContentLoaded', function() {
     // Add navbar background on scroll
     initNavbarScroll();
 
-    // Add scroll animations
-    initScrollAnimations();
-
     // Initialize tooltips
     initTooltips();
 
@@ -25,7 +22,26 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Back-to-top button
     initBackToTop();
+
+    // Auto-regenerate password on option changes
+    initPasswordGeneratorAutoUpdate();
 });
+
+function initPasswordGeneratorAutoUpdate() {
+    const optionIds = ['uppercase', 'lowercase', 'numbers', 'symbols'];
+    optionIds.forEach((id) => {
+        const el = document.getElementById(id);
+        if (!el) return;
+        el.addEventListener('change', function() {
+            const anyChecked = optionIds.some(optionId => document.getElementById(optionId)?.checked);
+            if (!anyChecked) {
+                this.checked = true;
+                return;
+            }
+            generatePassword();
+        });
+    });
+}
 
 function getRandomInt(maxExclusive) {
     if (maxExclusive <= 0) return 0;
@@ -149,18 +165,45 @@ function updatePasswordStrength(password) {
 function copyPassword() {
     const passwordField = document.getElementById('generatedPassword');
     const password = passwordField.value;
+    const copyButton = passwordField?.closest('.input-group')?.querySelector('button');
 
     if (!password) {
         showAlert('Primero genera una contraseña', 'warning');
         return;
     }
 
+    if (copyButton?.dataset?.copied === '1') return;
+
     const showCopied = () => {
-        showAlert('¡Contraseña copiada al portapapeles!', 'success');
-        passwordField.classList.add('animate__animated', 'animate__headShake');
-        setTimeout(() => {
-            passwordField.classList.remove('animate__animated', 'animate__headShake');
-        }, 1000);
+        if (copyButton) {
+            if (!copyButton.dataset.originalHtml) {
+                copyButton.dataset.originalHtml = copyButton.innerHTML;
+            }
+            if (copyButton.dataset.resetTimerId) {
+                window.clearTimeout(Number(copyButton.dataset.resetTimerId));
+            }
+
+            // Keep button size stable and avoid "disabled" grey tint
+            if (!copyButton.dataset.originalWidth) {
+                copyButton.dataset.originalWidth = copyButton.style.width || '';
+            }
+            copyButton.style.width = `${copyButton.offsetWidth}px`;
+            copyButton.style.pointerEvents = 'none';
+            copyButton.dataset.copied = '1';
+
+            copyButton.innerHTML = '<i class="fas fa-check me-2"></i>Listo';
+            copyButton.setAttribute('aria-label', 'Copiado');
+
+            const timerId = window.setTimeout(() => {
+                copyButton.innerHTML = copyButton.dataset.originalHtml || '<i class="fas fa-copy"></i> Copiar';
+                copyButton.setAttribute('aria-label', 'Copiar');
+                copyButton.style.width = copyButton.dataset.originalWidth || '';
+                copyButton.style.pointerEvents = '';
+                delete copyButton.dataset.copied;
+                delete copyButton.dataset.resetTimerId;
+            }, 1800);
+            copyButton.dataset.resetTimerId = String(timerId);
+        }
     };
 
     // Prefer modern clipboard API in secure contexts
@@ -288,27 +331,8 @@ function initNavbarScroll() {
 }
 
 // Scroll Animations
-function initScrollAnimations() {
-    // Intersection Observer for scroll animations
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('animate__animated', 'animate__fadeInUp');
-                observer.unobserve(entry.target);
-            }
-        });
-    }, observerOptions);
-
-    // Observe all cards and sections
-    document.querySelectorAll('.card').forEach(card => {
-        observer.observe(card);
-    });
-}
+// (Disabled) Previously used IntersectionObserver + Animate.css which caused cards to "move" while scrolling.
+function initScrollAnimations() {}
 
 // Tooltips
 function initTooltips() {
@@ -321,7 +345,7 @@ function initTooltips() {
 // Interactive Elements
 function initInteractiveElements() {
     // Add click feedback to buttons
-    document.querySelectorAll('.btn').forEach(button => {
+    document.querySelectorAll('.btn:not(.back-to-top):not(.btn-close)').forEach(button => {
         button.addEventListener('click', function(e) {
             // Create ripple effect
             const ripple = document.createElement('span');
@@ -396,7 +420,7 @@ function startSecurityTips() {
         "📱 Revisa regularmente la configuración de privacidad",
         "🔍 Desconfía de mensajes y enlaces sospechosos",
         "🌐 Mantén tus apps y navegador actualizados",
-        "👁️ Sé cuidadoso con lo que compartes online",
+        "👁️ Se cuidadoso con lo que compartes online",
         "🚫 No aceptes solicitudes de amistad de desconocidos"
     ];
 
@@ -463,33 +487,62 @@ window.addEventListener('load', logPerformance);
 
 function initActiveSectionHighlight() {
     const navLinks = Array.from(document.querySelectorAll('.navbar .nav-link[href^="#"]'));
-    const sectionIds = navLinks
-        .map(link => link.getAttribute('href'))
-        .filter(Boolean)
-        .filter(href => href !== '#')
-        .map(href => href.slice(1));
+    if (!navLinks.length) return;
 
-    const sections = sectionIds
-        .map(id => document.getElementById(id))
+    const sectionPairs = navLinks
+        .map(link => {
+            const href = link.getAttribute('href');
+            if (!href || href === '#') return null;
+            const id = href.slice(1);
+            const section = document.getElementById(id);
+            if (!section) return null;
+            return { id, link, section };
+        })
         .filter(Boolean);
 
-    if (sections.length === 0 || navLinks.length === 0) return;
+    if (!sectionPairs.length) return;
 
-    const observer = new IntersectionObserver((entries) => {
-        const visible = entries
-            .filter(e => e.isIntersecting)
-            .sort((a, b) => (b.intersectionRatio || 0) - (a.intersectionRatio || 0))[0];
+    const navbar = document.querySelector('.navbar');
+    let ticking = false;
 
-        if (!visible || !visible.target?.id) return;
-        const id = visible.target.id;
-
-        navLinks.forEach(link => {
-            const href = link.getAttribute('href') || '';
-            link.classList.toggle('active', href === `#${id}`);
+    const setActive = (activeId) => {
+        sectionPairs.forEach(({ id, link }) => {
+            link.classList.toggle('active', id === activeId);
         });
-    }, { threshold: 0.25, rootMargin: '-20% 0px -60% 0px' });
+    };
 
-    sections.forEach(section => observer.observe(section));
+    const computeActiveId = () => {
+        const navbarHeight = navbar?.offsetHeight || 70;
+
+        // Handle very top of page explicitly.
+        if (window.scrollY <= 10) return sectionPairs[0].id;
+
+        // Handle very bottom explicitly.
+        const scrollBottom = window.scrollY + window.innerHeight;
+        const pageBottom = document.documentElement.scrollHeight;
+        if (scrollBottom >= pageBottom - 2) return sectionPairs[sectionPairs.length - 1].id;
+
+        const probeY = window.scrollY + navbarHeight + 12;
+        let current = sectionPairs[0].id;
+        for (const pair of sectionPairs) {
+            if (pair.section.offsetTop <= probeY) current = pair.id;
+            else break;
+        }
+        return current;
+    };
+
+    const update = () => {
+        if (ticking) return;
+        ticking = true;
+        requestAnimationFrame(() => {
+            setActive(computeActiveId());
+            ticking = false;
+        });
+    };
+
+    update();
+    window.addEventListener('scroll', update, { passive: true });
+    window.addEventListener('resize', update);
 }
 
 function initBackToTop() {

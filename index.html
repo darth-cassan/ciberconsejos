@@ -144,12 +144,13 @@
             <div class="row g-4">
                 <!-- TikTok Security -->
                 <div class="col-lg-6 col-md-12">
-                    <div class="card h-100 social-card animate__animated animate__fadeInLeft">
-                        <div class="card-header header-slate">
-                            <i class="fab fa-tiktok"></i> Seguridad en TikTok
-                        </div>
+	                    <div class="card h-100 social-card animate__animated animate__fadeInLeft">
+	                        <div class="card-header header-indigo">
+	                            <i class="fab fa-tiktok me-1"></i><i class="fab fa-instagram me-2"></i>
+	                            <span>Seguridad en TikTok e Instagram</span>
+	                        </div>
                         <div class="card-body">
-                            <h5 class="card-title">Protección en TikTok</h5>
+                            <h5 class="card-title">Protección en TikTok e Instagram</h5>
                             <ul class="list-unstyled">
                                 <li class="mb-2">
                                     <i class="fas fa-check-circle text-success"></i>
@@ -180,7 +181,7 @@
                 <div class="col-lg-6 col-md-12">
                     <div class="card h-100 social-card animate__animated animate__fadeInRight">
                         <div class="card-header header-indigo">
-                            <i class="fas fa-share-alt"></i> Redes Sociales en General
+                            <i class="fas fa-share-alt me-2"></i><span>Redes Sociales en General</span>
                         </div>
                         <div class="card-body">
                             <h5 class="card-title">Buenas prácticas universales</h5>
@@ -214,10 +215,10 @@
             <!-- Threats Section -->
             <div class="row mt-4">
                 <div class="col-12">
-                    <div class="card threat-card animate__animated animate__fadeInUp">
-                        <div class="card-header header-danger">
-                            <i class="fas fa-exclamation-triangle"></i> Amenazas Comunes en Redes Sociales
-                        </div>
+	                    <div class="card threat-card no-hover animate__animated animate__fadeInUp">
+	                        <div class="card-header header-danger">
+	                            <i class="fas fa-exclamation-triangle me-2"></i><span>Amenazas Comunes en Redes Sociales</span>
+	                        </div>
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-md-4 mb-3">
@@ -311,10 +312,10 @@
             <!-- Educational Websites -->
             <div class="row mt-4">
                 <div class="col-12">
-                    <div class="card">
-                        <div class="card-header header-info">
-                            <i class="fas fa-graduation-cap"></i> Webs Educativas Recomendadas
-                        </div>
+	                    <div class="card no-hover">
+	                        <div class="card-header header-info">
+	                            <i class="fas fa-graduation-cap me-2"></i><span>Webs Educativas Recomendadas</span>
+	                        </div>
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-md-6">
@@ -366,29 +367,12 @@
                 <p class="section-subtitle">Crea contraseñas fuertes y únicas. Copia con un clic y revisa la fortaleza en tiempo real.</p>
             </div>
 
-            <div class="row g-4 align-items-start">
-                <div class="col-lg-5">
-                    <div class="card h-100 animate__animated animate__fadeInLeft">
-                        <div class="card-header header-indigo">
-                            <i class="fas fa-shield-alt"></i> Recomendación rápida
-                        </div>
-                        <div class="card-body">
-                            <p class="mb-3 text-muted">Para cuentas importantes (correo, banca, redes), prioriza esto:</p>
-                            <ul class="list-unstyled mb-0">
-                                <li class="mb-2"><i class="fas fa-check-circle text-success"></i> 16+ caracteres</li>
-                                <li class="mb-2"><i class="fas fa-check-circle text-success"></i> Mezcla letras, números y símbolos</li>
-                                <li class="mb-2"><i class="fas fa-check-circle text-success"></i> 1 contraseña distinta por servicio</li>
-                                <li class="mb-0"><i class="fas fa-check-circle text-success"></i> Activa 2FA siempre que puedas</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-7">
-                    <div class="card password-generator-card animate__animated animate__fadeInUp">
-                        <div class="card-header header-slate">
-                            <i class="fas fa-key"></i> Generador de Contraseñas
-                        </div>
+	            <div class="row g-4 align-items-start">
+	                <div class="col-lg-7">
+	                    <div class="card password-generator-card animate__animated animate__fadeInUp">
+	                        <div class="card-header header-slate">
+	                            <i class="fas fa-key"></i> Generador de Contraseñas
+	                        </div>
                         <div class="card-body">
                             <div class="mb-4">
                                 <div class="input-group">
@@ -447,22 +431,38 @@
                                 </div>
                             </div>
 
-                            <div class="d-flex flex-wrap justify-content-center justify-content-md-end gap-2 mt-4">
-                                <button class="btn btn-success btn-lg" onclick="generatePassword()">
-                                    <i class="fas fa-sync-alt"></i> Generar
-                                </button>
-                            </div>
+	                            <div class="d-flex flex-wrap justify-content-center justify-content-md-end gap-2 mt-4">
+	                                <button class="btn btn-success btn-lg" onclick="generatePassword()">
+	                                    <i class="fas fa-sync-alt"></i> Generar
+	                                </button>
+	                            </div>
+	                        </div>
+	                    </div>
+	                </div>
 
-                            <div class="alert alert-info mt-3 mb-0">
-                                <i class="fas fa-info-circle"></i>
-                                <strong>Tip profesional:</strong> Usa un gestor de contraseñas para no reutilizar claves.
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+	                <div class="col-lg-5">
+		                    <div class="card h-100 animate__animated animate__fadeInLeft">
+		                        <div class="card-header header-indigo">
+		                            <i class="fas fa-shield-alt me-2"></i><span>Recomendación rápida</span>
+		                        </div>
+	                        <div class="card-body">
+	                            <p class="mb-3 text-muted">Para cuentas importantes (correo, banca, redes), prioriza esto:</p>
+	                            <ul class="list-unstyled mb-0">
+	                                <li class="mb-2"><i class="fas fa-check-circle text-success"></i> 16+ caracteres</li>
+	                                <li class="mb-2"><i class="fas fa-check-circle text-success"></i> Mezcla letras, números y símbolos</li>
+	                                <li class="mb-2"><i class="fas fa-check-circle text-success"></i> 1 contraseña distinta por servicio</li>
+	                                <li class="mb-0"><i class="fas fa-check-circle text-success"></i> Activa 2FA siempre que puedas</li>
+	                            </ul>
+	                            <div class="alert alert-info mt-3 mb-0">
+	                                <i class="fas fa-info-circle"></i>
+	                                <strong>Tip profesional:</strong> Usa un gestor de contraseñas para no reutilizar claves.
+	                            </div>
+	                        </div>
+	                    </div>
+	                </div>
+	            </div>
+	        </div>
+	    </section>
 
     <!-- Help Section -->
     <section id="ayuda" class="py-5 section-surface">
@@ -476,77 +476,95 @@
             <div class="row g-4">
                 <!-- Emergency Contacts -->
                 <div class="col-lg-6">
-                    <div class="card h-100 help-card animate__animated animate__fadeInLeft">
-                        <div class="card-header header-danger">
-                            <i class="fas fa-phone-alt"></i> Contactos de Emergencia
-                        </div>
-                        <div class="card-body">
-                            <h5 class="card-title">En caso de emergencia</h5>
-                            <div class="emergency-contact">
-                                <i class="fas fa-shield-alt text-danger"></i>
-                                <div>
-                                    <strong>016</strong> - Teléfono contra la violencia de género
-                                </div>
-                            </div>
-                            <div class="emergency-contact">
-                                <i class="fas fa-shield-alt text-danger"></i>
-                                <div>
-                                    <strong>112</strong> - Emergencias (policía, bomberos, ambulancia)
-                                </div>
-                            </div>
-                            <div class="emergency-contact">
-                                <i class="fas fa-shield-alt text-primary"></i>
-                                <div>
-                                    <strong>900 101 112</strong> - Línea de denuncia de ciberdelitos (Policía Nacional)
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Online Help -->
-                <div class="col-lg-6">
-                    <div class="card h-100 help-card animate__animated animate__fadeInRight">
-                        <div class="card-header header-info">
-                            <i class="fas fa-laptop"></i> Ayuda Online
-                        </div>
-                        <div class="card-body">
-	                            <h5 class="card-title">Plataformas digitales de ayuda</h5>
-	                            <ul class="list-unstyled">
-	                                <li class="mb-2">
-	                                    <i class="fas fa-globe text-info"></i>
-	                                    <strong>
-	                                        <a class="link-primary text-decoration-none" href="https://www.internetsinscandidad.es" target="_blank" rel="noopener noreferrer">www.internetsinscandidad.es</a>
-	                                    </strong>
-	                                    - Ayuda para víctimas de ciberacoso
-	                                </li>
-	                                <li class="mb-2">
-	                                    <i class="fas fa-globe text-info"></i>
-	                                    <strong>
-	                                        <a class="link-primary text-decoration-none" href="https://www.ciberseguridad.es" target="_blank" rel="noopener noreferrer">www.ciberseguridad.es</a>
-	                                    </strong>
-	                                    - Portal oficial de ciberseguridad
-	                                </li>
-	                                <li class="mb-2">
-	                                    <i class="fas fa-globe text-info"></i>
-	                                    <strong>
-	                                        <a class="link-primary text-decoration-none" href="https://www.confianzaenlared.es" target="_blank" rel="noopener noreferrer">www.confianzaenlared.es</a>
-	                                    </strong>
-	                                    - Recursos para niños y padres
-	                                </li>
-	                            </ul>
+	                    <div class="card h-100 help-card animate__animated animate__fadeInLeft">
+	                        <div class="card-header header-danger">
+	                            <i class="fas fa-phone-alt me-2"></i><span>Contactos de Emergencia</span>
+	                        </div>
+	                        <div class="card-body">
+	                            <h5 class="card-title">En caso de emergencia</h5>
+	                            <div class="emergency-contact">
+	                                <i class="fas fa-shield-alt text-danger"></i>
+	                                <div>
+	                                    <strong><a class="link-primary text-decoration-none" href="tel:016">016</a></strong> - Teléfono contra la violencia de género
+	                                </div>
+	                            </div>
+	                            <div class="emergency-contact">
+	                                <i class="fas fa-shield-alt text-danger"></i>
+	                                <div>
+	                                    <strong><a class="link-primary text-decoration-none" href="tel:112">112</a></strong> - Emergencias (policía, bomberos, ambulancia)
+	                                </div>
+	                            </div>
+	                            <div class="emergency-contact">
+	                                <i class="fas fa-user-shield text-primary"></i>
+	                                <div>
+	                                    <strong><a class="link-primary text-decoration-none" href="tel:091">091</a></strong> - Policía Nacional (denuncias/urgencias)
+	                                </div>
+	                            </div>
+	                            <div class="emergency-contact">
+	                                <i class="fas fa-user-shield text-primary"></i>
+	                                <div>
+	                                    <strong><a class="link-primary text-decoration-none" href="tel:062">062</a></strong> - Guardia Civil (denuncias/urgencias)
+	                                </div>
+	                            </div>
+	                            <div class="emergency-contact">
+	                                <i class="fas fa-headset text-success"></i>
+	                                <div>
+	                                    <strong><a class="link-primary text-decoration-none" href="tel:017">017</a></strong> - Ayuda en ciberseguridad (INCIBE)
+	                                </div>
+	                            </div>
 	                        </div>
 	                    </div>
 	                </div>
+
+                <!-- Online Help -->
+                <div class="col-lg-6">
+	                    <div class="card h-100 help-card animate__animated animate__fadeInRight">
+	                        <div class="card-header header-info">
+	                            <i class="fas fa-laptop me-2"></i><span>Ayuda Online</span>
+	                        </div>
+	                        <div class="card-body">
+		                            <h5 class="card-title">Plataformas digitales de ayuda</h5>
+		                            <div class="mt-2">
+		                                <div class="emergency-contact">
+		                                    <i class="fas fa-globe text-info"></i>
+		                                    <div>
+		                                        <strong>
+		                                            <a class="link-primary text-decoration-none" href="https://www.internetsinscandidad.es" target="_blank" rel="noopener noreferrer">www.internetsinscandidad.es</a>
+		                                        </strong>
+		                                        - Ayuda para víctimas de ciberacoso
+		                                    </div>
+		                                </div>
+		                                <div class="emergency-contact">
+		                                    <i class="fas fa-globe text-info"></i>
+		                                    <div>
+		                                        <strong>
+		                                            <a class="link-primary text-decoration-none" href="https://www.ciberseguridad.es" target="_blank" rel="noopener noreferrer">www.ciberseguridad.es</a>
+		                                        </strong>
+		                                        - Portal oficial de ciberseguridad
+		                                    </div>
+		                                </div>
+		                                <div class="emergency-contact mb-0">
+		                                    <i class="fas fa-globe text-info"></i>
+		                                    <div>
+		                                        <strong>
+		                                            <a class="link-primary text-decoration-none" href="https://www.confianzaenlared.es" target="_blank" rel="noopener noreferrer">www.confianzaenlared.es</a>
+		                                        </strong>
+		                                        - Recursos para niños y padres
+		                                    </div>
+		                                </div>
+		                            </div>
+		                        </div>
+		                    </div>
+		                </div>
             </div>
 
             <!-- What to Report -->
             <div class="row mt-4">
                 <div class="col-12">
-                    <div class="card">
-                        <div class="card-header header-warning">
-                            <i class="fas fa-exclamation-triangle"></i> ¿Qué Debes Denunciar?
-                        </div>
+	                    <div class="card no-hover">
+	                        <div class="card-header header-warning">
+	                            <i class="fas fa-exclamation-triangle me-2"></i><span>¿Qué Debes Denunciar?</span>
+	                        </div>
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-md-4 mb-3">
@@ -599,26 +617,32 @@
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="bg-dark text-white py-4">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6 text-center text-md-start">
-                    <h5><i class="fas fa-shield-alt"></i> CiberConsejos</h5>
-                    <p class="mb-0">Tu guía definitiva para la seguridad digital</p>
-                </div>
-                <div class="col-md-6 text-center text-md-end">
-                    <div class="social-links">
-                        <a href="#" class="text-white me-3" aria-label="GitHub"><i class="fab fa-github fa-lg"></i></a>
-                        <a href="#" class="text-white me-3" aria-label="X / Twitter"><i class="fab fa-twitter fa-lg"></i></a>
-                        <a href="#" class="text-white me-3" aria-label="Instagram"><i class="fab fa-instagram fa-lg"></i></a>
-                        <a href="#" class="text-white" aria-label="YouTube"><i class="fab fa-youtube fa-lg"></i></a>
-                    </div>
-                    <p class="mt-2 mb-0">© 2024 CiberConsejos. Todos los derechos reservados.</p>
-                </div>
-            </div>
-        </div>
-    </footer>
+	    <!-- Footer -->
+	    <footer class="site-footer">
+	        <div class="container">
+	            <div class="footer-card">
+	                <div class="footer-brand">
+	                    <div class="d-flex align-items-center gap-2">
+	                        <i class="fas fa-shield-alt"></i>
+	                        <span class="fw-bold">CiberConsejos</span>
+	                    </div>
+	                    <div class="footer-subtitle">Tu guía definitiva para la seguridad digital</div>
+	                </div>
+
+	                <div class="footer-school" aria-label="Centro educativo">
+	                    <i class="fas fa-graduation-cap"></i>
+	                    <span>Politécnico Jesús Marín</span>
+	                </div>
+
+	                <div class="footer-actions">
+	                    <a href="https://github.com/darth-cassan/ciberconsejos" target="_blank" rel="noopener noreferrer" class="footer-github" aria-label="GitHub (repositorio)">
+	                        <i class="fab fa-github"></i>
+	                    </a>
+		                    <div class="footer-copy">2025 · Proyecto educativo</div>
+		                </div>
+		            </div>
+		        </div>
+		    </footer>
 
     <!-- Back to top -->
     <button id="backToTop" class="btn btn-primary back-to-top" type="button" aria-label="Volver arriba">
@@ -661,15 +685,41 @@
                     <h5 class="modal-title"><i class="fas fa-hands-helping"></i> Centros de Ayuda</h5>
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
                 </div>
-                <div class="modal-body">
-                    <h6 class="text-success">En España:</h6>
-                    <ul>
-                        <li><strong>INCIBE:</strong> 900 116 117</li>
-                        <li><strong>Policía Nacional:</strong> 900 101 112 (ciberdelitos)</li>
-                        <li><strong>Guardia Civil:</strong> 062 (ciberdelitos)</li>
-                    </ul>
+	                <div class="modal-body">
+	                    <h6 class="text-success">En España:</h6>
+	                    <ul class="mb-3">
+	                        <li>
+	                            <strong>INCIBE 017:</strong>
+	                            <a class="link-primary text-decoration-none" href="tel:017">017</a>
+	                            <span class="text-muted">— ayuda y asesoramiento en ciberseguridad</span>
+	                        </li>
+	                        <li>
+	                            <strong>OSI (INCIBE):</strong>
+	                            <a class="link-primary text-decoration-none" href="https://www.osi.es" target="_blank" rel="noopener noreferrer">www.osi.es</a>
+	                            <span class="text-muted">— guías y recursos prácticos</span>
+	                        </li>
+	                        <li>
+	                            <strong>AEPD:</strong>
+	                            <a class="link-primary text-decoration-none" href="https://www.aepd.es" target="_blank" rel="noopener noreferrer">www.aepd.es</a>
+	                            <span class="text-muted">— privacidad y protección de datos</span>
+	                        </li>
+	                        <li>
+	                            <strong>Policía Nacional:</strong>
+	                            <a class="link-primary text-decoration-none" href="tel:091">091</a>
+	                            <span class="text-muted">— denuncias/urgencias</span>
+	                        </li>
+	                        <li>
+	                            <strong>Guardia Civil:</strong>
+	                            <a class="link-primary text-decoration-none" href="tel:062">062</a>
+	                            <span class="text-muted">— denuncias/urgencias</span>
+	                        </li>
+	                        <li>
+	                            <strong>Emergencias:</strong>
+	                            <a class="link-primary text-decoration-none" href="tel:112">112</a>
+	                        </li>
+	                    </ul>
 
-	                    <h6 class="text-success">Internacional:</h6>
+	                    <h6 class="text-success">Si estás fuera de España:</h6>
 	                    <ul>
 	                        <li>
 	                            <strong>CyberTipline (EEUU):</strong>
