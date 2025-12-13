@@ -1131,6 +1131,46 @@ html {
 }
 
 /* Responsive Design */
+@media (max-width: 992px) {
+    .hero-section {
+        min-height: auto;
+        padding: 7.5rem 0 4.5rem;
+        align-items: flex-start;
+    }
+
+    .hero-kicker {
+        max-width: 100%;
+        flex-wrap: wrap;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .security-tip {
+        max-width: 100%;
+        font-size: 0.95rem;
+        border-radius: 18px;
+    }
+
+    section {
+        padding: 4rem 0;
+    }
+
+    .section-header {
+        margin-bottom: 1.75rem;
+    }
+
+    .footer-card {
+        grid-template-columns: 1fr;
+        justify-items: start;
+    }
+
+    .footer-actions {
+        width: 100%;
+        justify-content: space-between;
+        justify-self: start;
+    }
+}
+
 @media (max-width: 768px) {
     .hero-section .display-4 {
         font-size: 2.5rem;
@@ -1153,6 +1193,29 @@ html {
     section {
         padding: 3rem 0;
     }
+
+    .hero-panel {
+        border-radius: 18px;
+    }
+
+    .hero-panel-header {
+        padding: 14px 14px;
+    }
+
+    .hero-panel-body {
+        padding: 14px;
+    }
+
+    .hero-mini-metric {
+        grid-template-columns: 42px 1fr;
+        padding: 10px 12px;
+    }
+
+    .hero-mini-metric i {
+        width: 42px;
+        height: 42px;
+        border-radius: 12px;
+    }
 }
 
 @media (max-width: 576px) {
@@ -1166,6 +1229,37 @@ html {
 
     .card {
         margin-bottom: 1rem;
+    }
+
+    .hero-section {
+        padding: 6.5rem 0 3.5rem;
+    }
+
+    .btn-lg {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .password-generator-card .input-group {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+    }
+
+    .password-generator-card .input-group .form-control {
+        border-radius: 14px;
+    }
+
+    .password-generator-card .input-group .btn {
+        border-radius: 14px;
+        width: 100%;
+    }
+
+    .back-to-top {
+        right: 14px !important;
+        bottom: 14px !important;
+        width: 44px;
+        height: 44px;
     }
 }
 
@@ -1427,5 +1521,11 @@ html {
 
     html {
         scrollbar-color: rgba(165, 180, 252, 0.70) transparent;
+    }
+}
+
+@media (prefers-color-scheme: dark) and (max-width: 992px) {
+    .hero-section {
+        padding: 7rem 0 4rem;
     }
 }
