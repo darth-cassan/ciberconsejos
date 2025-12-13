@@ -689,15 +689,15 @@
 	        </div>
 	    </div>
 
-	    <!-- Modal for Channels -->
-	    <div class="modal fade" id="channelsModal" tabindex="-1">
-	        <div class="modal-dialog modal-lg">
-	            <div class="modal-content">
-                <div class="modal-header header-indigo">
-                    <h5 class="modal-title"><i class="fab fa-youtube"></i> Canales Educativos de Ciberseguridad</h5>
-                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
-                </div>
-                <div class="modal-body">
+		    <!-- Modal for Channels -->
+		    <div class="modal fade" id="channelsModal" tabindex="-1">
+		        <div class="modal-dialog modal-dialog-centered modal-lg">
+		            <div class="modal-content">
+	                <div class="modal-header header-indigo">
+	                    <h5 class="modal-title fw-bold"><i class="fab fa-youtube"></i> Canales Educativos de Ciberseguridad</h5>
+	                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+	                </div>
+	                <div class="modal-body">
                     <div class="list-group">
                         <a href="https://youtube.com/c/INCIBE" target="_blank" class="list-group-item list-group-item-action">
                             <i class="fab fa-youtube text-danger"></i> INCIBE - Contenido oficial español
@@ -717,67 +717,91 @@
         </div>
     </div>
 
-    <!-- Modal for Help Centers -->
-    <div class="modal fade" id="helpCentersModal" tabindex="-1">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header header-success">
-                    <h5 class="modal-title"><i class="fas fa-hands-helping"></i> Centros de Ayuda</h5>
-                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
-                </div>
-	                <div class="modal-body">
-	                    <h6 class="text-success">En España:</h6>
-	                    <ul class="mb-3">
-	                        <li>
-	                            <strong>INCIBE 017:</strong>
-	                            <a class="link-primary text-decoration-none" href="tel:017">017</a>
-	                            <span class="text-muted">— ayuda y asesoramiento en ciberseguridad</span>
-	                        </li>
-	                        <li>
-	                            <strong>OSI (INCIBE):</strong>
-	                            <a class="link-primary text-decoration-none" href="https://www.osi.es" target="_blank" rel="noopener noreferrer">www.osi.es</a>
-	                            <span class="text-muted">— guías y recursos prácticos</span>
-	                        </li>
-	                        <li>
-	                            <strong>AEPD:</strong>
-	                            <a class="link-primary text-decoration-none" href="https://www.aepd.es" target="_blank" rel="noopener noreferrer">www.aepd.es</a>
-	                            <span class="text-muted">— privacidad y protección de datos</span>
-	                        </li>
-	                        <li>
-	                            <strong>Policía Nacional:</strong>
-	                            <a class="link-primary text-decoration-none" href="tel:091">091</a>
-	                            <span class="text-muted">— denuncias/urgencias</span>
-	                        </li>
-	                        <li>
-	                            <strong>Guardia Civil:</strong>
-	                            <a class="link-primary text-decoration-none" href="tel:062">062</a>
-	                            <span class="text-muted">— denuncias/urgencias</span>
-	                        </li>
-	                        <li>
-	                            <strong>Emergencias:</strong>
-	                            <a class="link-primary text-decoration-none" href="tel:112">112</a>
-	                        </li>
-	                    </ul>
-
-	                    <h6 class="text-success">Si estás fuera de España:</h6>
-	                    <ul>
-	                        <li>
-	                            <strong>CyberTipline (EEUU):</strong>
-	                            <a class="link-primary text-decoration-none" href="https://www.cybertipline.com" target="_blank" rel="noopener noreferrer">www.cybertipline.com</a>
-	                        </li>
-	                        <li>
-	                            <strong>CEOP (UK):</strong>
-	                            <a class="link-primary text-decoration-none" href="https://www.ceop.police.uk" target="_blank" rel="noopener noreferrer">www.ceop.police.uk</a>
-	                        </li>
-	                        <li>
-	                            <strong>Australian eSafety:</strong>
-	                            <a class="link-primary text-decoration-none" href="https://www.esafety.gov.au" target="_blank" rel="noopener noreferrer">www.esafety.gov.au</a>
-	                        </li>
-	                    </ul>
+	    <!-- Modal for Help Centers -->
+	    <div class="modal fade" id="helpCentersModal" tabindex="-1">
+	        <div class="modal-dialog modal-dialog-centered modal-lg">
+	            <div class="modal-content">
+	                <div class="modal-header header-success">
+	                    <h5 class="modal-title fw-bold"><i class="fas fa-hands-helping"></i> Centros de Ayuda</h5>
+	                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
 	                </div>
-	            </div>
-	        </div>
-	    </div>
+		                <div class="modal-body">
+		                    <h6 class="help-center-heading">En España</h6>
+		                    <div class="help-center-list">
+		                        <div class="emergency-contact">
+		                            <i class="fas fa-headset text-success"></i>
+		                            <div>
+		                                <strong>INCIBE 017:</strong> <strong><a class="link-primary text-decoration-none" href="tel:017">017</a></strong>
+		                                <span class="help-center-desc">Ayuda y asesoramiento gratuito en ciberseguridad.</span>
+		                            </div>
+		                        </div>
+		                        <div class="emergency-contact">
+		                            <i class="fas fa-globe text-info"></i>
+		                            <div>
+		                                <strong>OSI (INCIBE):</strong>
+		                                <a class="link-primary text-decoration-none" href="https://www.osi.es" target="_blank" rel="noopener noreferrer">www.osi.es</a>
+		                                <span class="help-center-desc">Guías, herramientas y avisos para usuarios.</span>
+		                            </div>
+		                        </div>
+		                        <div class="emergency-contact">
+		                            <i class="fas fa-globe text-info"></i>
+		                            <div>
+		                                <strong>AEPD:</strong>
+		                                <a class="link-primary text-decoration-none" href="https://www.aepd.es" target="_blank" rel="noopener noreferrer">www.aepd.es</a>
+		                                <span class="help-center-desc">Privacidad, protección de datos y derechos.</span>
+		                            </div>
+		                        </div>
+		                        <div class="emergency-contact">
+		                            <i class="fas fa-user-shield text-primary"></i>
+		                            <div>
+		                                <strong>Policía Nacional:</strong> <strong><a class="link-primary text-decoration-none" href="tel:091">091</a></strong>
+		                                <span class="help-center-desc">Denuncias y urgencias.</span>
+		                            </div>
+		                        </div>
+		                        <div class="emergency-contact">
+		                            <i class="fas fa-user-shield text-primary"></i>
+		                            <div>
+		                                <strong>Guardia Civil:</strong> <strong><a class="link-primary text-decoration-none" href="tel:062">062</a></strong>
+		                                <span class="help-center-desc">Denuncias y urgencias.</span>
+		                            </div>
+		                        </div>
+		                        <div class="emergency-contact mb-0">
+		                            <i class="fas fa-phone-alt text-danger"></i>
+		                            <div>
+		                                <strong>Emergencias:</strong> <strong><a class="link-primary text-decoration-none" href="tel:112">112</a></strong>
+		                                <span class="help-center-desc">Para situaciones urgentes.</span>
+		                            </div>
+		                        </div>
+		                    </div>
+
+		                    <h6 class="help-center-heading mt-4">Si estás fuera de España</h6>
+		                    <div class="help-center-list">
+		                        <div class="emergency-contact">
+		                            <i class="fas fa-globe text-info"></i>
+		                            <div>
+		                                <strong>CyberTipline (EE. UU.):</strong>
+		                                <a class="link-primary text-decoration-none" href="https://www.cybertipline.com" target="_blank" rel="noopener noreferrer">www.cybertipline.com</a>
+		                            </div>
+		                        </div>
+		                        <div class="emergency-contact">
+		                            <i class="fas fa-globe text-info"></i>
+		                            <div>
+		                                <strong>CEOP (Reino Unido):</strong>
+		                                <a class="link-primary text-decoration-none" href="https://www.ceop.police.uk" target="_blank" rel="noopener noreferrer">www.ceop.police.uk</a>
+		                            </div>
+		                        </div>
+		                        <div class="emergency-contact mb-0">
+		                            <i class="fas fa-globe text-info"></i>
+		                            <div>
+		                                <strong>eSafety (Australia):</strong>
+		                                <a class="link-primary text-decoration-none" href="https://www.esafety.gov.au" target="_blank" rel="noopener noreferrer">www.esafety.gov.au</a>
+		                            </div>
+		                        </div>
+		                    </div>
+		                </div>
+		            </div>
+		        </div>
+		    </div>
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>

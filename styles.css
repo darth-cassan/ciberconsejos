@@ -728,6 +728,40 @@ section#ayuda.section-surface::before {
     border-bottom: 1px solid var(--stroke) !important;
 }
 
+/* Help Centers modal readability */
+#helpCentersModal .help-center-heading {
+    font-weight: 850;
+    letter-spacing: -0.01em;
+    margin-bottom: 0.9rem;
+    color: var(--text);
+}
+
+#helpCentersModal .help-center-list {
+    display: grid;
+    gap: 0.75rem;
+}
+
+#helpCentersModal .emergency-contact {
+    margin-bottom: 0;
+    align-items: flex-start;
+    padding: 1.05rem 1rem;
+}
+
+#helpCentersModal .emergency-contact:hover {
+    transform: none;
+}
+
+#helpCentersModal .emergency-contact > div {
+    line-height: 1.55;
+}
+
+#helpCentersModal .help-center-desc {
+    display: block;
+    margin-top: 0.2rem;
+    color: var(--muted);
+    font-size: 0.95rem;
+}
+
 /* Emergency Contact Styles */
 .emergency-contact {
     display: flex;
