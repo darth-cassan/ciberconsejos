@@ -43,20 +43,20 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#home">Inicio</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#redes-sociales">Redes Sociales</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#recursos">Recursos</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#password-generator">Generador</a>
-                    </li>
-                    <li class="nav-item">
+	                <ul class="navbar-nav ms-auto">
+	                    <li class="nav-item">
+	                        <a class="nav-link" href="#home">Inicio</a>
+	                    </li>
+	                    <li class="nav-item">
+	                        <a class="nav-link" href="#recursos">Recursos</a>
+	                    </li>
+	                    <li class="nav-item">
+	                        <a class="nav-link" href="#redes-sociales">Redes Sociales</a>
+	                    </li>
+	                    <li class="nav-item">
+	                        <a class="nav-link" href="#password-generator">Generador</a>
+	                    </li>
+	                    <li class="nav-item">
                         <a class="nav-link" href="#ayuda">Ayuda</a>
                     </li>
                 </ul>
@@ -78,13 +78,13 @@
                         <h1 class="display-4 fw-bold text-white mb-3">CiberConsejos</h1>
                         <p class="lead text-white-50 mb-4">Aprende a proteger tu privacidad, tus cuentas y tu identidad digital con buenas prácticas fáciles de aplicar.</p>
 
-                        <div class="d-flex flex-wrap justify-content-center justify-content-lg-start gap-3">
-                            <a href="#redes-sociales" class="btn btn-primary btn-lg">
-                                <i class="fas fa-users"></i> Redes Sociales
-                            </a>
-                            <a href="#password-generator" class="btn btn-outline-light btn-lg">
-                                <i class="fas fa-key"></i> Generar Contraseña
-                            </a>
+	                        <div class="d-flex flex-wrap justify-content-center justify-content-lg-start gap-3">
+	                            <a href="#recursos" class="btn btn-primary btn-lg">
+	                                <i class="fas fa-book"></i> Recursos
+	                            </a>
+	                            <a href="#password-generator" class="btn btn-outline-light btn-lg">
+	                                <i class="fas fa-key"></i> Generar Contraseña
+	                            </a>
                             <a href="#ayuda" class="btn btn-outline-light btn-lg">
                                 <i class="fas fa-life-ring"></i> Pedir Ayuda
                             </a>
@@ -131,6 +131,129 @@
             </div>
         </div>
     </section>
+
+	    <!-- Resources Section -->
+	    <section id="recursos" class="py-5 section-surface">
+	        <div class="container">
+	            <div class="section-header">
+	                <div class="section-eyebrow"><i class="fas fa-book"></i> Recursos</div>
+	                <h2 class="section-title">Recursos de ciberseguridad</h2>
+	                <p class="section-subtitle">Fuentes fiables para aprender más, verificar información y pedir ayuda.</p>
+	            </div>
+
+	            <div class="row g-4">
+	                <!-- INCIBE -->
+	                <div class="col-lg-4 col-md-6">
+	                    <div class="card resource-card h-100 animate__animated animate__fadeInUp">
+	                        <div class="card-body text-center">
+	                            <div class="d-flex justify-content-center mb-3">
+	                                <span class="icon-badge"><i class="fas fa-shield-alt"></i></span>
+	                            </div>
+	                            <h5 class="card-title">INCIBE</h5>
+	                            <p class="card-text">Instituto Nacional de Ciberseguridad de España</p>
+	                            <a href="https://www.incibe.es" target="_blank" class="btn btn-primary">
+	                                <i class="fas fa-external-link-alt"></i> Visitar
+	                            </a>
+	                        </div>
+	                    </div>
+	                </div>
+
+	                <!-- Security Channels -->
+	                <div class="col-lg-4 col-md-6">
+	                    <div class="card resource-card h-100 animate__animated animate__fadeInUp" style="animation-delay: 0.1s">
+	                        <div class="card-body text-center">
+	                            <div class="d-flex justify-content-center mb-3">
+	                                <span class="icon-badge"><i class="fab fa-youtube"></i></span>
+	                            </div>
+	                            <h5 class="card-title">Canales Educativos</h5>
+	                            <p class="card-text">Contenido educativo sobre ciberseguridad</p>
+	                            <button class="btn btn-danger" onclick="showChannels()">
+	                                <i class="fas fa-play"></i> Ver Canales
+	                            </button>
+	                        </div>
+	                    </div>
+	                </div>
+
+	                <!-- Help Centers -->
+	                <div class="col-lg-4 col-md-6">
+	                    <div class="card resource-card h-100 animate__animated animate__fadeInUp" style="animation-delay: 0.2s">
+	                        <div class="card-body text-center">
+	                            <div class="d-flex justify-content-center mb-3">
+	                                <span class="icon-badge"><i class="fas fa-hands-helping"></i></span>
+	                            </div>
+	                            <h5 class="card-title">Centros de Ayuda</h5>
+	                            <p class="card-text">Dónde reportar ciberdelitos y pedir ayuda</p>
+	                            <button class="btn btn-success" onclick="showHelpCenters()">
+	                                <i class="fas fa-info-circle"></i> Más Info
+	                            </button>
+	                        </div>
+	                    </div>
+	                </div>
+	            </div>
+
+	            <!-- Educational Websites -->
+	            <div class="row mt-4">
+	                <div class="col-12">
+		                    <div class="card no-hover">
+		                        <div class="card-header header-info">
+		                            <i class="fas fa-graduation-cap me-2"></i><span>Webs Educativas Recomendadas</span>
+		                        </div>
+			                        <div class="card-body">
+			                            <button class="btn btn-outline-primary btn-sm mobile-collapse-toggle d-sm-none mb-3" type="button" data-bs-toggle="collapse" data-bs-target="#eduWebs" data-open-text="Ocultar webs" data-closed-text="Ver webs" aria-expanded="true" aria-controls="eduWebs">
+			                                Ocultar webs
+			                            </button>
+			                            <div id="eduWebs" class="row collapse collapse-mobile show">
+			                                <div class="col-md-6">
+			                                    <ul class="list-unstyled">
+			                                        <li class="mb-2">
+			                                            <i class="fas fa-check text-info"></i>
+			                                            <strong>OSI (INCIBE):</strong>
+		                                            <a class="link-primary text-decoration-none" href="https://www.osi.es" target="_blank" rel="noopener noreferrer">www.osi.es</a>
+		                                            <span class="text-muted">— Consejos y guías prácticas.</span>
+		                                        </li>
+		                                        <li class="mb-2">
+		                                            <i class="fas fa-check text-info"></i>
+		                                            <strong>IS4K (Internet Segura for Kids):</strong>
+		                                            <a class="link-primary text-decoration-none" href="https://www.is4k.es" target="_blank" rel="noopener noreferrer">www.is4k.es</a>
+		                                            <span class="text-muted">— Recursos para familias y centros.</span>
+		                                        </li>
+		                                        <li class="mb-2">
+		                                            <i class="fas fa-check text-info"></i>
+		                                            <strong>INCIBE (Ciudadanía):</strong>
+		                                            <a class="link-primary text-decoration-none" href="https://www.incibe.es/ciudadania" target="_blank" rel="noopener noreferrer">www.incibe.es/ciudadania</a>
+		                                            <span class="text-muted">— Herramientas, formación y avisos.</span>
+		                                        </li>
+		                                    </ul>
+		                                </div>
+		                                <div class="col-md-6">
+		                                    <ul class="list-unstyled">
+		                                        <li class="mb-2">
+		                                            <i class="fas fa-check text-info"></i>
+		                                            <strong>AEPD:</strong>
+		                                            <a class="link-primary text-decoration-none" href="https://www.aepd.es" target="_blank" rel="noopener noreferrer">www.aepd.es</a>
+		                                            <span class="text-muted">— Privacidad, datos y derechos.</span>
+		                                        </li>
+		                                        <li class="mb-2">
+		                                            <i class="fas fa-check text-info"></i>
+		                                            <strong>ENISA (UE):</strong>
+		                                            <a class="link-primary text-decoration-none" href="https://www.enisa.europa.eu" target="_blank" rel="noopener noreferrer">www.enisa.europa.eu</a>
+		                                            <span class="text-muted">— Recursos europeos de ciberseguridad.</span>
+		                                        </li>
+		                                        <li class="mb-2">
+		                                            <i class="fas fa-check text-info"></i>
+		                                            <strong>Better Internet for Kids (UE):</strong>
+		                                            <a class="link-primary text-decoration-none" href="https://www.betterinternetforkids.eu" target="_blank" rel="noopener noreferrer">betterinternetforkids.eu</a>
+		                                            <span class="text-muted">— Educación digital y bienestar.</span>
+			                                        </li>
+			                                    </ul>
+			                                </div>
+			                            </div>
+			                        </div>
+		                    </div>
+	                </div>
+	            </div>
+	        </div>
+	    </section>
 
     <!-- Social Media Security Section -->
     <section id="redes-sociales" class="py-5 bg-light section-surface">
@@ -260,134 +383,11 @@
         </div>
     </section>
 
-    <!-- Resources Section -->
-    <section id="recursos" class="py-5 section-surface">
-        <div class="container">
+	    <!-- Password Generator Section -->
+	    <section id="password-generator" class="py-5 bg-light section-surface">
+	        <div class="container">
             <div class="section-header">
-                <div class="section-eyebrow"><i class="fas fa-book"></i> Recursos</div>
-                <h2 class="section-title">Recursos de ciberseguridad</h2>
-                <p class="section-subtitle">Fuentes fiables para aprender más, verificar información y pedir ayuda.</p>
-            </div>
-
-            <div class="row g-4">
-                <!-- INCIBE -->
-                <div class="col-lg-4 col-md-6">
-                    <div class="card resource-card h-100 animate__animated animate__fadeInUp">
-                        <div class="card-body text-center">
-                            <div class="d-flex justify-content-center mb-3">
-                                <span class="icon-badge"><i class="fas fa-shield-alt"></i></span>
-                            </div>
-                            <h5 class="card-title">INCIBE</h5>
-                            <p class="card-text">Instituto Nacional de Ciberseguridad de España</p>
-                            <a href="https://www.incibe.es" target="_blank" class="btn btn-primary">
-                                <i class="fas fa-external-link-alt"></i> Visitar
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Security Channels -->
-                <div class="col-lg-4 col-md-6">
-                    <div class="card resource-card h-100 animate__animated animate__fadeInUp" style="animation-delay: 0.1s">
-                        <div class="card-body text-center">
-                            <div class="d-flex justify-content-center mb-3">
-                                <span class="icon-badge"><i class="fab fa-youtube"></i></span>
-                            </div>
-                            <h5 class="card-title">Canales Educativos</h5>
-                            <p class="card-text">Contenido educativo sobre ciberseguridad</p>
-                            <button class="btn btn-danger" onclick="showChannels()">
-                                <i class="fas fa-play"></i> Ver Canales
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Help Centers -->
-                <div class="col-lg-4 col-md-6">
-                    <div class="card resource-card h-100 animate__animated animate__fadeInUp" style="animation-delay: 0.2s">
-                        <div class="card-body text-center">
-                            <div class="d-flex justify-content-center mb-3">
-                                <span class="icon-badge"><i class="fas fa-hands-helping"></i></span>
-                            </div>
-                            <h5 class="card-title">Centros de Ayuda</h5>
-                            <p class="card-text">Dónde reportar ciberdelitos y pedir ayuda</p>
-                            <button class="btn btn-success" onclick="showHelpCenters()">
-                                <i class="fas fa-info-circle"></i> Más Info
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Educational Websites -->
-            <div class="row mt-4">
-                <div class="col-12">
-	                    <div class="card no-hover">
-	                        <div class="card-header header-info">
-	                            <i class="fas fa-graduation-cap me-2"></i><span>Webs Educativas Recomendadas</span>
-	                        </div>
-		                        <div class="card-body">
-		                            <button class="btn btn-outline-primary btn-sm mobile-collapse-toggle d-sm-none mb-3" type="button" data-bs-toggle="collapse" data-bs-target="#eduWebs" data-open-text="Ocultar webs" data-closed-text="Ver webs" aria-expanded="true" aria-controls="eduWebs">
-		                                Ocultar webs
-		                            </button>
-		                            <div id="eduWebs" class="row collapse collapse-mobile show">
-		                                <div class="col-md-6">
-		                                    <ul class="list-unstyled">
-		                                        <li class="mb-2">
-		                                            <i class="fas fa-check text-info"></i>
-		                                            <strong>OSI (INCIBE):</strong>
-	                                            <a class="link-primary text-decoration-none" href="https://www.osi.es" target="_blank" rel="noopener noreferrer">www.osi.es</a>
-	                                            <span class="text-muted">— Consejos y guías prácticas.</span>
-	                                        </li>
-	                                        <li class="mb-2">
-	                                            <i class="fas fa-check text-info"></i>
-	                                            <strong>IS4K (Internet Segura for Kids):</strong>
-	                                            <a class="link-primary text-decoration-none" href="https://www.is4k.es" target="_blank" rel="noopener noreferrer">www.is4k.es</a>
-	                                            <span class="text-muted">— Recursos para familias y centros.</span>
-	                                        </li>
-	                                        <li class="mb-2">
-	                                            <i class="fas fa-check text-info"></i>
-	                                            <strong>INCIBE (Ciudadanía):</strong>
-	                                            <a class="link-primary text-decoration-none" href="https://www.incibe.es/ciudadania" target="_blank" rel="noopener noreferrer">www.incibe.es/ciudadania</a>
-	                                            <span class="text-muted">— Herramientas, formación y avisos.</span>
-	                                        </li>
-	                                    </ul>
-	                                </div>
-	                                <div class="col-md-6">
-	                                    <ul class="list-unstyled">
-	                                        <li class="mb-2">
-	                                            <i class="fas fa-check text-info"></i>
-	                                            <strong>AEPD:</strong>
-	                                            <a class="link-primary text-decoration-none" href="https://www.aepd.es" target="_blank" rel="noopener noreferrer">www.aepd.es</a>
-	                                            <span class="text-muted">— Privacidad, datos y derechos.</span>
-	                                        </li>
-	                                        <li class="mb-2">
-	                                            <i class="fas fa-check text-info"></i>
-	                                            <strong>ENISA (UE):</strong>
-	                                            <a class="link-primary text-decoration-none" href="https://www.enisa.europa.eu" target="_blank" rel="noopener noreferrer">www.enisa.europa.eu</a>
-	                                            <span class="text-muted">— Recursos europeos de ciberseguridad.</span>
-	                                        </li>
-	                                        <li class="mb-2">
-	                                            <i class="fas fa-check text-info"></i>
-	                                            <strong>Better Internet for Kids (UE):</strong>
-	                                            <a class="link-primary text-decoration-none" href="https://www.betterinternetforkids.eu" target="_blank" rel="noopener noreferrer">betterinternetforkids.eu</a>
-	                                            <span class="text-muted">— Educación digital y bienestar.</span>
-		                                        </li>
-		                                    </ul>
-		                                </div>
-		                            </div>
-		                        </div>
-	                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Password Generator Section -->
-    <section id="password-generator" class="py-5 bg-light section-surface">
-        <div class="container">
-            <div class="section-header">
-                <div class="section-eyebrow"><i class="fas fa-key"></i> Herramienta</div>
+	                <div class="section-eyebrow"><i class="fas fa-key"></i> Generador</div>
                 <h2 class="section-title">Generador de contraseñas seguras</h2>
                 <p class="section-subtitle">Crea contraseñas fuertes y únicas. Copia con un clic y revisa la fortaleza en tiempo real.</p>
             </div>
@@ -586,11 +586,11 @@
             <!-- What to Report -->
             <div class="row mt-4">
                 <div class="col-12">
-	                    <div class="card no-hover">
-	                        <div class="card-header header-warning">
-	                            <i class="fas fa-exclamation-triangle me-2"></i><span>¿Qué Debes Denunciar?</span>
-	                        </div>
-                        <div class="card-body">
+		                    <div class="card no-hover">
+		                        <div class="card-header header-info d-flex flex-wrap align-items-center gap-2">
+		                            <i class="fas fa-exclamation-triangle"></i><span>¿Qué Debes Denunciar?</span>
+		                        </div>
+	                        <div class="card-body">
                             <div class="row">
                                 <div class="col-md-4 mb-3">
                                     <div class="text-center">
@@ -679,7 +679,7 @@
 	        <div class="modal-dialog modal-dialog-centered modal-lg">
 	            <div class="modal-content">
 	                <div class="modal-header header-slate">
-	                    <h5 class="modal-title" id="checklistModalLabel"><i class="fas fa-info-circle me-2"></i><span id="checklistModalTitle">Detalle</span></h5>
+	                    <h5 class="modal-title" id="checklistModalLabel"><span id="checklistModalTitle">Detalle</span></h5>
 	                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Cerrar"></button>
 	                </div>
 	                <div class="modal-body">

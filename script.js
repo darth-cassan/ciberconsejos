@@ -632,6 +632,9 @@ function initActiveSectionHighlight() {
 
     if (!sectionPairs.length) return;
 
+    // Keep scroll-based activation correct even if nav order differs from DOM order.
+    const orderedPairs = [...sectionPairs].sort((a, b) => a.section.offsetTop - b.section.offsetTop);
+
     const navbar = document.querySelector('.navbar');
     let ticking = false;
 
@@ -645,16 +648,16 @@ function initActiveSectionHighlight() {
         const navbarHeight = navbar?.offsetHeight || 70;
 
         // Handle very top of page explicitly.
-        if (window.scrollY <= 10) return sectionPairs[0].id;
+        if (window.scrollY <= 10) return orderedPairs[0].id;
 
         // Handle very bottom explicitly.
         const scrollBottom = window.scrollY + window.innerHeight;
         const pageBottom = document.documentElement.scrollHeight;
-        if (scrollBottom >= pageBottom - 2) return sectionPairs[sectionPairs.length - 1].id;
+        if (scrollBottom >= pageBottom - 2) return orderedPairs[orderedPairs.length - 1].id;
 
         const probeY = window.scrollY + navbarHeight + 12;
-        let current = sectionPairs[0].id;
-        for (const pair of sectionPairs) {
+        let current = orderedPairs[0].id;
+        for (const pair of orderedPairs) {
             if (pair.section.offsetTop <= probeY) current = pair.id;
             else break;
         }

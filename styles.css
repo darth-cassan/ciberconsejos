@@ -718,8 +718,14 @@ section#ayuda.section-surface::before {
 }
 
 .help-card {
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(240, 255, 240, 0.98) 100%);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(248, 250, 252, 0.98) 100%);
     border: 1px solid var(--stroke);
+}
+
+.plain-header {
+    background: transparent !important;
+    color: var(--text) !important;
+    border-bottom: 1px solid var(--stroke) !important;
 }
 
 /* Emergency Contact Styles */
@@ -728,7 +734,8 @@ section#ayuda.section-surface::before {
     align-items: center;
     padding: 1rem;
     margin-bottom: 0.5rem;
-    background-color: rgba(0, 0, 0, 0.02);
+    background-color: rgba(15, 23, 42, 0.04);
+    border: 1px solid var(--stroke);
     border-radius: 10px;
     transition: all 0.3s ease;
 }
@@ -738,7 +745,7 @@ section#ayuda.section-surface::before {
 }
 
 .emergency-contact:hover {
-    background-color: rgba(0, 0, 0, 0.05);
+    background-color: rgba(99, 102, 241, 0.06);
     transform: translateX(5px);
 }
 
@@ -1093,6 +1100,15 @@ footer {
 
 .modal-body .link-primary {
     color: rgba(99, 102, 241, 1) !important;
+}
+
+/* Checklist popups: fully opaque surface + extra bottom spacing */
+#checklistModal .modal-content {
+    background: #ffffff;
+}
+
+#checklistModal .modal-body {
+    padding-bottom: 1.75rem;
 }
 
 .list-group-item {
@@ -1487,6 +1503,14 @@ html {
 
     .modal-body .link-primary {
         color: rgba(165, 180, 252, 1) !important;
+    }
+
+    #checklistModal .modal-content {
+        background: #0f172a;
+    }
+
+    #checklistModal .modal-body {
+        padding-bottom: 1.75rem;
     }
 
     .section-surface::before {

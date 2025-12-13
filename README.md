@@ -6,17 +6,17 @@ Politécnico Jesús Marín.
 
 ## Características
 
-- Secciones claras: redes sociales, recursos, ayuda y herramienta de contraseñas.
-- Generador de contraseñas (con fortaleza, copiado y opciones).
+- Secciones claras: recursos, redes sociales, generador y ayuda.
+- Generador de contraseñas (fortaleza, copiado con confirmación en el botón y opciones con auto-actualización).
 - Diseño responsive y soporte de modo claro/oscuro.
-- Interacciones accesibles: navegación por anclas, modales y tarjetas clicables.
+- Interacciones accesibles: navegación por anclas, modales (incluyendo checklist rápido) y tarjetas/filas clicables.
 
 ## Tecnologías
 
 - HTML + CSS + JavaScript (sin build step).
 - Bootstrap 5 (layout y componentes).
 - Font Awesome (iconos).
-- Animate.css (animaciones puntuales).
+- Animate.css (animaciones puntuales de entrada).
 
 ## Notas
 
