@@ -101,33 +101,33 @@
 	                        <div class="hero-panel-header">
 	                            <p class="hero-panel-title">Checklist rápido</p>
 	                        </div>
-                        <div class="hero-panel-body">
-                            <div class="d-grid gap-3">
-                                <div class="hero-mini-metric">
-                                    <i class="fas fa-user-lock"></i>
-                                    <div>
-                                        <strong>Activa 2FA</strong>
-                                        <small>Bloquea accesos incluso si filtran tu contraseña.</small>
-                                    </div>
-                                </div>
-                                <div class="hero-mini-metric">
-                                    <i class="fas fa-fingerprint"></i>
-                                    <div>
-                                        <strong>Privacidad al día</strong>
-                                        <small>Revisa permisos, etiquetas y quién ve tu perfil.</small>
-                                    </div>
-                                </div>
-                                <div class="hero-mini-metric">
-                                    <i class="fas fa-link"></i>
-                                    <div>
-                                        <strong>Evita phishing</strong>
-                                        <small>Comprueba URLs antes de iniciar sesión o pagar.</small>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+	                        <div class="hero-panel-body">
+	                            <div class="d-grid gap-3">
+	                                <button type="button" class="hero-mini-metric checklist-item" data-check="2fa" aria-label="Activa 2FA (más información)">
+	                                    <i class="fas fa-user-lock"></i>
+	                                    <div>
+	                                        <strong>Activa 2FA</strong>
+	                                        <small>Bloquea accesos incluso si filtran tu contraseña.</small>
+	                                    </div>
+	                                </button>
+	                                <button type="button" class="hero-mini-metric checklist-item" data-check="privacy" aria-label="Privacidad al día (más información)">
+	                                    <i class="fas fa-fingerprint"></i>
+	                                    <div>
+	                                        <strong>Privacidad al día</strong>
+	                                        <small>Revisa permisos, etiquetas y quién ve tu perfil.</small>
+	                                    </div>
+	                                </button>
+	                                <button type="button" class="hero-mini-metric checklist-item" data-check="phishing" aria-label="Evita phishing (más información)">
+	                                    <i class="fas fa-link"></i>
+	                                    <div>
+	                                        <strong>Evita phishing</strong>
+	                                        <small>Comprueba URLs antes de iniciar sesión o pagar.</small>
+	                                    </div>
+	                                </button>
+	                            </div>
+	                        </div>
+	                    </div>
+	                </div>
             </div>
         </div>
     </section>
@@ -149,67 +149,77 @@
 	                            <i class="fab fa-tiktok me-1"></i><i class="fab fa-instagram me-2"></i>
 	                            <span>Seguridad en TikTok e Instagram</span>
 	                        </div>
-                        <div class="card-body">
-                            <h5 class="card-title">Protección en TikTok e Instagram</h5>
-                            <ul class="list-unstyled">
-                                <li class="mb-2">
-                                    <i class="fas fa-check-circle text-success"></i>
-                                    <strong>Cuenta privada:</strong> Limita quién puede ver tus videos
-                                </li>
-                                <li class="mb-2">
-                                    <i class="fas fa-check-circle text-success"></i>
-                                    <strong>Control de comentarios:</strong> Filtra comentarios inapropiados
-                                </li>
-                                <li class="mb-2">
-                                    <i class="fas fa-check-circle text-success"></i>
-                                    <strong>No compartas información personal:</strong> Ubicación, escuela, etc.
-                                </li>
-                                <li class="mb-2">
-                                    <i class="fas fa-check-circle text-success"></i>
-                                    <strong>Cuidado con desafíos:</strong> Verifica su seguridad antes de participar
-                                </li>
-                                <li class="mb-2">
-                                    <i class="fas fa-check-circle text-success"></i>
-                                    <strong>Denuncia contenido:</strong> Reporta acoso o contenido peligroso
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+	                        <div class="card-body">
+	                            <h5 class="card-title">Protección en TikTok e Instagram</h5>
+	                            <button class="btn btn-outline-primary btn-sm mobile-collapse-toggle d-sm-none" type="button" data-bs-toggle="collapse" data-bs-target="#tipsTiktokIg" data-open-text="Ocultar consejos" data-closed-text="Ver consejos" aria-expanded="true" aria-controls="tipsTiktokIg">
+	                                Ocultar consejos
+	                            </button>
+	                            <div id="tipsTiktokIg" class="collapse collapse-mobile show mt-3">
+	                                <ul class="list-unstyled mb-0">
+	                                <li class="mb-2">
+	                                    <i class="fas fa-check-circle text-success"></i>
+	                                    <strong>Cuenta privada:</strong> Limita quién puede ver tus videos
+	                                </li>
+	                                <li class="mb-2">
+	                                    <i class="fas fa-check-circle text-success"></i>
+	                                    <strong>Control de comentarios:</strong> Filtra comentarios inapropiados
+	                                </li>
+	                                <li class="mb-2">
+	                                    <i class="fas fa-check-circle text-success"></i>
+	                                    <strong>No compartas información personal:</strong> Ubicación, escuela, etc.
+	                                </li>
+	                                <li class="mb-2">
+	                                    <i class="fas fa-check-circle text-success"></i>
+	                                    <strong>Cuidado con desafíos:</strong> Verifica su seguridad antes de participar
+	                                </li>
+	                                <li class="mb-2">
+	                                    <i class="fas fa-check-circle text-success"></i>
+	                                    <strong>Denuncia contenido:</strong> Reporta acoso o contenido peligroso
+	                                </li>
+	                                </ul>
+	                            </div>
+	                        </div>
+	                    </div>
+	                </div>
 
                 <!-- General Social Media -->
                 <div class="col-lg-6 col-md-12">
-                    <div class="card h-100 social-card animate__animated animate__fadeInRight">
-                        <div class="card-header header-indigo">
-                            <i class="fas fa-share-alt me-2"></i><span>Redes Sociales en General</span>
-                        </div>
-                        <div class="card-body">
-                            <h5 class="card-title">Buenas prácticas universales</h5>
-                            <ul class="list-unstyled">
-                                <li class="mb-2">
-                                    <i class="fas fa-check-circle text-success"></i>
-                                    <strong>Autenticación de dos factores:</strong> Activa 2FA siempre
-                                </li>
-                                <li class="mb-2">
-                                    <i class="fas fa-check-circle text-success"></i>
-                                    <strong>Contraseñas únicas:</strong> Usa contraseñas diferentes por red
-                                </li>
-                                <li class="mb-2">
-                                    <i class="fas fa-check-circle text-success"></i>
-                                    <strong>Revisa permisos:</strong> Limita acceso de aplicaciones terceras
-                                </li>
-                                <li class="mb-2">
-                                    <i class="fas fa-check-circle text-success"></i>
-                                    <strong>Cuidado con phishing:</strong> Verifica mensajes sospechosos
-                                </li>
-                                <li class="mb-2">
-                                    <i class="fas fa-check-circle text-success"></i>
-                                    <strong>Configuración de privacidad:</strong> Revisa regularmente tus ajustes
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+	                    <div class="card h-100 social-card animate__animated animate__fadeInRight">
+	                        <div class="card-header header-indigo">
+	                            <i class="fas fa-share-alt me-2"></i><span>Redes Sociales en General</span>
+	                        </div>
+	                        <div class="card-body">
+	                            <h5 class="card-title">Buenas prácticas universales</h5>
+	                            <button class="btn btn-outline-primary btn-sm mobile-collapse-toggle d-sm-none" type="button" data-bs-toggle="collapse" data-bs-target="#tipsGeneral" data-open-text="Ocultar consejos" data-closed-text="Ver consejos" aria-expanded="true" aria-controls="tipsGeneral">
+	                                Ocultar consejos
+	                            </button>
+	                            <div id="tipsGeneral" class="collapse collapse-mobile show mt-3">
+	                                <ul class="list-unstyled mb-0">
+	                                <li class="mb-2">
+	                                    <i class="fas fa-check-circle text-success"></i>
+	                                    <strong>Autenticación de dos factores:</strong> Activa 2FA siempre
+	                                </li>
+	                                <li class="mb-2">
+	                                    <i class="fas fa-check-circle text-success"></i>
+	                                    <strong>Contraseñas únicas:</strong> Usa contraseñas diferentes por red
+	                                </li>
+	                                <li class="mb-2">
+	                                    <i class="fas fa-check-circle text-success"></i>
+	                                    <strong>Revisa permisos:</strong> Limita acceso de aplicaciones terceras
+	                                </li>
+	                                <li class="mb-2">
+	                                    <i class="fas fa-check-circle text-success"></i>
+	                                    <strong>Cuidado con phishing:</strong> Verifica mensajes sospechosos
+	                                </li>
+	                                <li class="mb-2">
+	                                    <i class="fas fa-check-circle text-success"></i>
+	                                    <strong>Configuración de privacidad:</strong> Revisa regularmente tus ajustes
+	                                </li>
+	                                </ul>
+	                            </div>
+	                        </div>
+	                    </div>
+	                </div>
             </div>
 
             <!-- Threats Section -->
@@ -316,43 +326,58 @@
 	                        <div class="card-header header-info">
 	                            <i class="fas fa-graduation-cap me-2"></i><span>Webs Educativas Recomendadas</span>
 	                        </div>
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <ul class="list-unstyled">
-                                        <li class="mb-2">
-                                            <i class="fas fa-check text-info"></i>
-                                            <strong>Stay Safe Online:</strong> www.staysafeonline.org
-                                        </li>
-                                        <li class="mb-2">
-                                            <i class="fas fa-check text-info"></i>
-                                            <strong>ConnectSafely:</strong> www.connectsafely.org
-                                        </li>
-                                        <li class="mb-2">
-                                            <i class="fas fa-check text-info"></i>
-                                            <strong>Common Sense Media:</strong> www.commonsensemedia.org
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="col-md-6">
-                                    <ul class="list-unstyled">
-                                        <li class="mb-2">
-                                            <i class="fas fa-check text-info"></i>
-                                            <strong>Google Safety Center:</strong> safety.google
-                                        </li>
-                                        <li class="mb-2">
-                                            <i class="fas fa-check text-info"></i>
-                                            <strong>Facebook Safety:</strong> www.facebook.com/safety
-                                        </li>
-                                        <li class="mb-2">
-                                            <i class="fas fa-check text-info"></i>
-                                            <strong>TikTok Safety Center:</strong> www.tiktok.com/safety
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+		                        <div class="card-body">
+		                            <button class="btn btn-outline-primary btn-sm mobile-collapse-toggle d-sm-none mb-3" type="button" data-bs-toggle="collapse" data-bs-target="#eduWebs" data-open-text="Ocultar webs" data-closed-text="Ver webs" aria-expanded="true" aria-controls="eduWebs">
+		                                Ocultar webs
+		                            </button>
+		                            <div id="eduWebs" class="row collapse collapse-mobile show">
+		                                <div class="col-md-6">
+		                                    <ul class="list-unstyled">
+		                                        <li class="mb-2">
+		                                            <i class="fas fa-check text-info"></i>
+		                                            <strong>OSI (INCIBE):</strong>
+	                                            <a class="link-primary text-decoration-none" href="https://www.osi.es" target="_blank" rel="noopener noreferrer">www.osi.es</a>
+	                                            <span class="text-muted">— Consejos y guías prácticas.</span>
+	                                        </li>
+	                                        <li class="mb-2">
+	                                            <i class="fas fa-check text-info"></i>
+	                                            <strong>IS4K (Internet Segura for Kids):</strong>
+	                                            <a class="link-primary text-decoration-none" href="https://www.is4k.es" target="_blank" rel="noopener noreferrer">www.is4k.es</a>
+	                                            <span class="text-muted">— Recursos para familias y centros.</span>
+	                                        </li>
+	                                        <li class="mb-2">
+	                                            <i class="fas fa-check text-info"></i>
+	                                            <strong>INCIBE (Ciudadanía):</strong>
+	                                            <a class="link-primary text-decoration-none" href="https://www.incibe.es/ciudadania" target="_blank" rel="noopener noreferrer">www.incibe.es/ciudadania</a>
+	                                            <span class="text-muted">— Herramientas, formación y avisos.</span>
+	                                        </li>
+	                                    </ul>
+	                                </div>
+	                                <div class="col-md-6">
+	                                    <ul class="list-unstyled">
+	                                        <li class="mb-2">
+	                                            <i class="fas fa-check text-info"></i>
+	                                            <strong>AEPD:</strong>
+	                                            <a class="link-primary text-decoration-none" href="https://www.aepd.es" target="_blank" rel="noopener noreferrer">www.aepd.es</a>
+	                                            <span class="text-muted">— Privacidad, datos y derechos.</span>
+	                                        </li>
+	                                        <li class="mb-2">
+	                                            <i class="fas fa-check text-info"></i>
+	                                            <strong>ENISA (UE):</strong>
+	                                            <a class="link-primary text-decoration-none" href="https://www.enisa.europa.eu" target="_blank" rel="noopener noreferrer">www.enisa.europa.eu</a>
+	                                            <span class="text-muted">— Recursos europeos de ciberseguridad.</span>
+	                                        </li>
+	                                        <li class="mb-2">
+	                                            <i class="fas fa-check text-info"></i>
+	                                            <strong>Better Internet for Kids (UE):</strong>
+	                                            <a class="link-primary text-decoration-none" href="https://www.betterinternetforkids.eu" target="_blank" rel="noopener noreferrer">betterinternetforkids.eu</a>
+	                                            <span class="text-muted">— Educación digital y bienestar.</span>
+		                                        </li>
+		                                    </ul>
+		                                </div>
+		                            </div>
+		                        </div>
+	                    </div>
                 </div>
             </div>
         </div>
@@ -377,9 +402,9 @@
                             <div class="mb-4">
                                 <div class="input-group">
                                     <input type="text" id="generatedPassword" class="form-control form-control-lg" readonly placeholder="Tu contraseña segura aparecerá aquí">
-                                    <button class="btn btn-primary" onclick="copyPassword()">
-                                        <i class="fas fa-copy"></i> Copiar
-                                    </button>
+	                                    <button class="btn btn-primary btn-no-lift" onclick="copyPassword()">
+	                                        <i class="fas fa-copy"></i> Copiar
+	                                    </button>
                                 </div>
                             </div>
 
@@ -525,33 +550,33 @@
 	                        <div class="card-body">
 		                            <h5 class="card-title">Plataformas digitales de ayuda</h5>
 		                            <div class="mt-2">
-		                                <div class="emergency-contact">
-		                                    <i class="fas fa-globe text-info"></i>
-		                                    <div>
-		                                        <strong>
-		                                            <a class="link-primary text-decoration-none" href="https://www.internetsinscandidad.es" target="_blank" rel="noopener noreferrer">www.internetsinscandidad.es</a>
-		                                        </strong>
-		                                        - Ayuda para víctimas de ciberacoso
-		                                    </div>
-		                                </div>
-		                                <div class="emergency-contact">
-		                                    <i class="fas fa-globe text-info"></i>
-		                                    <div>
-		                                        <strong>
-		                                            <a class="link-primary text-decoration-none" href="https://www.ciberseguridad.es" target="_blank" rel="noopener noreferrer">www.ciberseguridad.es</a>
-		                                        </strong>
-		                                        - Portal oficial de ciberseguridad
-		                                    </div>
-		                                </div>
-		                                <div class="emergency-contact mb-0">
-		                                    <i class="fas fa-globe text-info"></i>
-		                                    <div>
-		                                        <strong>
-		                                            <a class="link-primary text-decoration-none" href="https://www.confianzaenlared.es" target="_blank" rel="noopener noreferrer">www.confianzaenlared.es</a>
-		                                        </strong>
-		                                        - Recursos para niños y padres
-		                                    </div>
-		                                </div>
+			                                <div class="emergency-contact">
+			                                    <i class="fas fa-globe text-info"></i>
+			                                    <div>
+			                                        <strong>
+			                                            <a class="link-primary text-decoration-none" href="https://www.incibe.es/linea-de-ayuda-en-ciberseguridad" target="_blank" rel="noopener noreferrer">incibe.es / Línea 017</a>
+			                                        </strong>
+			                                        - Asesoramiento gratuito en ciberseguridad (España)
+			                                    </div>
+			                                </div>
+			                                <div class="emergency-contact">
+			                                    <i class="fas fa-globe text-info"></i>
+			                                    <div>
+			                                        <strong>
+			                                            <a class="link-primary text-decoration-none" href="https://www.osi.es" target="_blank" rel="noopener noreferrer">osi.es</a>
+			                                        </strong>
+			                                        - Guías, herramientas y avisos para usuarios
+			                                    </div>
+			                                </div>
+			                                <div class="emergency-contact mb-0">
+			                                    <i class="fas fa-globe text-info"></i>
+			                                    <div>
+			                                        <strong>
+			                                            <a class="link-primary text-decoration-none" href="https://www.is4k.es" target="_blank" rel="noopener noreferrer">is4k.es</a>
+			                                        </strong>
+			                                        - Recursos para menores, familias y centros educativos
+			                                    </div>
+			                                </div>
 		                            </div>
 		                        </div>
 		                    </div>
@@ -629,10 +654,10 @@
 	                    <div class="footer-subtitle">Tu guía definitiva para la seguridad digital</div>
 	                </div>
 
-	                <div class="footer-school" aria-label="Centro educativo">
-	                    <i class="fas fa-graduation-cap"></i>
-	                    <span>Politécnico Jesús Marín</span>
-	                </div>
+		                <a class="footer-school" href="https://politecnicomalaga.com" target="_blank" rel="noopener noreferrer" aria-label="Politécnico Jesús Marín (web)">
+		                    <i class="fas fa-graduation-cap"></i>
+		                    <span>Politécnico Jesús Marín</span>
+		                </a>
 
 	                <div class="footer-actions">
 	                    <a href="https://github.com/darth-cassan/ciberconsejos" target="_blank" rel="noopener noreferrer" class="footer-github" aria-label="GitHub (repositorio)">
@@ -644,15 +669,30 @@
 		        </div>
 		    </footer>
 
-    <!-- Back to top -->
-    <button id="backToTop" class="btn btn-primary back-to-top" type="button" aria-label="Volver arriba">
-        <i class="fas fa-arrow-up"></i>
-    </button>
+	    <!-- Back to top -->
+	    <button id="backToTop" class="btn btn-primary back-to-top" type="button" aria-label="Volver arriba">
+	        <i class="fas fa-arrow-up"></i>
+	    </button>
 
-    <!-- Modal for Channels -->
-    <div class="modal fade" id="channelsModal" tabindex="-1">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
+	    <!-- Modal for Quick Checklist -->
+	    <div class="modal fade" id="checklistModal" tabindex="-1" aria-labelledby="checklistModalLabel" aria-hidden="true">
+	        <div class="modal-dialog modal-dialog-centered modal-lg">
+	            <div class="modal-content">
+	                <div class="modal-header header-slate">
+	                    <h5 class="modal-title" id="checklistModalLabel"><i class="fas fa-info-circle me-2"></i><span id="checklistModalTitle">Detalle</span></h5>
+	                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+	                </div>
+	                <div class="modal-body">
+	                    <div id="checklistModalBody"></div>
+	                </div>
+	            </div>
+	        </div>
+	    </div>
+
+	    <!-- Modal for Channels -->
+	    <div class="modal fade" id="channelsModal" tabindex="-1">
+	        <div class="modal-dialog modal-lg">
+	            <div class="modal-content">
                 <div class="modal-header header-indigo">
                     <h5 class="modal-title"><i class="fab fa-youtube"></i> Canales Educativos de Ciberseguridad</h5>
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>

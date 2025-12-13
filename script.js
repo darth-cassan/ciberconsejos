@@ -25,6 +25,15 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Auto-regenerate password on option changes
     initPasswordGeneratorAutoUpdate();
+
+    // Make help rows clickable (phone + web)
+    initClickableHelpRows();
+
+    // Quick checklist popups
+    initChecklistPopups();
+
+    // Mobile: collapse dense sections by default
+    initMobileCollapses();
 });
 
 function initPasswordGeneratorAutoUpdate() {
@@ -40,6 +49,127 @@ function initPasswordGeneratorAutoUpdate() {
             }
             generatePassword();
         });
+    });
+}
+
+function initClickableHelpRows() {
+    const rows = document.querySelectorAll('.emergency-contact');
+    if (!rows.length) return;
+
+    rows.forEach(row => {
+        const link = row.querySelector('a[href]');
+        if (!link) return;
+
+        row.classList.add('has-link');
+        row.setAttribute('role', 'link');
+        row.setAttribute('tabindex', '0');
+
+        row.addEventListener('click', (e) => {
+            const target = e.target;
+            if (target && target.closest && target.closest('a')) return;
+            link.click();
+        });
+
+        row.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                link.click();
+            }
+        });
+    });
+}
+
+function initChecklistPopups() {
+    const items = document.querySelectorAll('.checklist-item[data-check]');
+    if (!items.length) return;
+
+    const modalEl = document.getElementById('checklistModal');
+    const titleEl = document.getElementById('checklistModalTitle');
+    const bodyEl = document.getElementById('checklistModalBody');
+    if (!modalEl || !titleEl || !bodyEl) return;
+    if (typeof bootstrap === 'undefined' || !bootstrap.Modal) return;
+
+    const contentByKey = {
+        '2fa': {
+            title: 'Activa la verificación en dos pasos (2FA)',
+            bodyHtml: `
+                <p class="mb-3">Añade una segunda capa de seguridad para que una contraseña filtrada no sea suficiente.</p>
+                <ul class="mb-0">
+                    <li class="mb-2"><strong>Prioriza apps o llaves:</strong> autenticador (TOTP) o llaves de seguridad; SMS solo si no hay otra opción.</li>
+                    <li class="mb-2"><strong>Guarda códigos de recuperación</strong> en un lugar seguro (offline si es posible).</li>
+                    <li class="mb-2"><strong>Revisa sesiones y dispositivos</strong> conectados y cierra los que no reconozcas.</li>
+                    <li><strong>Ayuda en España:</strong> <a class="link-primary text-decoration-none" href="https://www.incibe.es/linea-de-ayuda-en-ciberseguridad" target="_blank" rel="noopener noreferrer">INCIBE / Línea 017</a>.</li>
+                </ul>
+            `,
+        },
+        'privacy': {
+            title: 'Privacidad al día',
+            bodyHtml: `
+                <p class="mb-3">Ajusta tu perfil para compartir solo lo necesario y reducir riesgos.</p>
+                <ul class="mb-0">
+                    <li class="mb-2"><strong>Perfil y publicaciones:</strong> configura quién puede ver tu contenido (público, amigos, solo yo).</li>
+                    <li class="mb-2"><strong>Etiquetas y menciones:</strong> aprueba manualmente etiquetas y controla quién puede mencionarte.</li>
+                    <li class="mb-2"><strong>Permisos de apps:</strong> elimina accesos de aplicaciones que no uses.</li>
+                    <li><strong>Ubicación:</strong> desactívala cuando no sea necesaria y revisa metadatos en fotos.</li>
+                </ul>
+            `,
+        },
+        'phishing': {
+            title: 'Evita el phishing',
+            bodyHtml: `
+                <p class="mb-3">El phishing intenta que entregues tus claves o pagues en sitios falsos.</p>
+                <ul class="mb-0">
+                    <li class="mb-2"><strong>Mira la URL real:</strong> dominio correcto, sin letras raras, y evita enlaces acortados si puedes.</li>
+                    <li class="mb-2"><strong>No inicies sesión desde enlaces:</strong> entra escribiendo la web en el navegador.</li>
+                    <li class="mb-2"><strong>Desconfía de urgencias:</strong> “tu cuenta se cerrará hoy”, “pago pendiente”, etc.</li>
+                    <li><strong>Aprende más:</strong> <a class="link-primary text-decoration-none" href="https://www.osi.es/es/actualidad/blog" target="_blank" rel="noopener noreferrer">OSI (INCIBE)</a>.</li>
+                </ul>
+            `,
+        },
+    };
+
+    const modal = bootstrap.Modal.getOrCreateInstance(modalEl);
+
+    items.forEach((item) => {
+        item.addEventListener('click', () => {
+            const key = item.getAttribute('data-check');
+            const content = contentByKey[key];
+            if (!content) return;
+            titleEl.textContent = content.title;
+            bodyEl.innerHTML = content.bodyHtml;
+            modal.show();
+        });
+    });
+}
+
+function initMobileCollapses() {
+    const collapseEls = Array.from(document.querySelectorAll('.collapse-mobile'));
+    if (!collapseEls.length) return;
+    if (typeof bootstrap === 'undefined' || !bootstrap.Collapse) return;
+
+    const isMobile = window.matchMedia && window.matchMedia('(max-width: 576px)').matches;
+
+    collapseEls.forEach((el) => {
+        const id = el.getAttribute('id');
+        const safeId = id && typeof CSS !== 'undefined' && CSS.escape ? CSS.escape(id) : id;
+        const toggle = safeId ? document.querySelector(`.mobile-collapse-toggle[data-bs-target="#${safeId}"]`) : null;
+        const openText = toggle?.getAttribute('data-open-text') || 'Ocultar';
+        const closedText = toggle?.getAttribute('data-closed-text') || 'Ver';
+
+        if (toggle) {
+            const setText = (expanded) => {
+                toggle.textContent = expanded ? openText : closedText;
+                toggle.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+            };
+
+            el.addEventListener('shown.bs.collapse', () => setText(true));
+            el.addEventListener('hidden.bs.collapse', () => setText(false));
+            setText(el.classList.contains('show'));
+        }
+
+        const instance = bootstrap.Collapse.getOrCreateInstance(el, { toggle: false });
+        if (isMobile) instance.hide();
+        else instance.show();
     });
 }
 

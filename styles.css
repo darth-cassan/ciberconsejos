@@ -273,6 +273,43 @@ p {
     color: rgba(255, 255, 255, 0.72);
 }
 
+.checklist-item {
+    width: 100%;
+    text-align: left;
+    cursor: pointer;
+    color: inherit;
+    font: inherit;
+    appearance: none;
+}
+
+.checklist-item:focus-visible {
+    outline: 3px solid rgba(165, 180, 252, 0.70);
+    outline-offset: 2px;
+}
+
+.mobile-collapse-toggle {
+    border-radius: 999px;
+    padding: 0.5rem 0.9rem;
+    font-weight: 700;
+    width: 100%;
+    justify-content: center;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.mobile-collapse-toggle.btn-outline-primary {
+    border-color: rgba(99, 102, 241, 0.40);
+    color: rgba(99, 102, 241, 1);
+    background: rgba(99, 102, 241, 0.08);
+}
+
+.mobile-collapse-toggle.btn-outline-primary:hover {
+    background: rgba(99, 102, 241, 0.12);
+    border-color: rgba(99, 102, 241, 0.55);
+    color: rgba(99, 102, 241, 1);
+}
+
 .security-tip {
     max-width: 820px;
     padding: 12px 16px;
@@ -358,6 +395,11 @@ p {
 .btn:hover {
     transform: translateY(-3px);
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.btn.btn-no-lift:hover,
+.btn.btn-no-lift:active {
+    transform: none;
 }
 
 .btn-lg {
@@ -691,6 +733,10 @@ section#ayuda.section-surface::before {
     transition: all 0.3s ease;
 }
 
+.emergency-contact.has-link {
+    cursor: pointer;
+}
+
 .emergency-contact:hover {
     background-color: rgba(0, 0, 0, 0.05);
     transform: translateX(5px);
@@ -924,6 +970,20 @@ footer {
     color: rgba(255, 255, 255, 0.90);
     font-weight: 800;
     letter-spacing: -0.01em;
+    text-decoration: none;
+    cursor: pointer;
+    transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+}
+
+.footer-school:hover {
+    transform: translateY(-1px);
+    background: rgba(255, 255, 255, 0.10);
+    border-color: rgba(255, 255, 255, 0.18);
+}
+
+.footer-school:focus-visible {
+    outline: 3px solid rgba(165, 180, 252, 0.75);
+    outline-offset: 2px;
 }
 
 .footer-school i {
@@ -1263,6 +1323,8 @@ html {
         background: var(--surface-3);
         border-color: var(--stroke-strong);
         box-shadow: var(--shadow-xs);
+        font-size: 1rem;
+        letter-spacing: 0.5px;
     }
 
     .site-footer {
@@ -1507,9 +1569,19 @@ html {
         box-shadow: var(--shadow-sm);
     }
 
-    .form-control::placeholder {
-        color: rgba(226, 237, 248, 0.62);
-    }
+	    .form-control::placeholder {
+	        color: rgba(226, 237, 248, 0.62);
+	    }
+
+	    /* Help/phone “bubble” rows need stronger contrast in dark mode */
+	    .emergency-contact {
+	        background-color: rgba(255, 255, 255, 0.06);
+	        border: 1px solid rgba(148, 163, 184, 0.16);
+	    }
+
+	    .emergency-contact:hover {
+	        background-color: rgba(99, 102, 241, 0.12);
+	    }
 
     .form-control:focus,
     .form-select:focus {
