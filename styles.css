@@ -1241,18 +1241,56 @@ html {
     }
 
     .password-generator-card .input-group {
+        display: flex;
         flex-direction: column;
+        flex-wrap: nowrap;
         align-items: stretch;
         gap: 10px;
     }
 
     .password-generator-card .input-group .form-control {
         border-radius: 14px;
+        width: 100%;
     }
 
     .password-generator-card .input-group .btn {
         border-radius: 14px;
         width: 100%;
+    }
+
+    /* Ensure the generated password field is clearly visible on small screens */
+    .password-generator-card #generatedPassword {
+        background: var(--surface-3);
+        border-color: var(--stroke-strong);
+        box-shadow: var(--shadow-xs);
+    }
+
+    .site-footer {
+        padding: 20px 0;
+    }
+
+    .footer-card {
+        padding: 14px;
+        gap: 12px;
+    }
+
+    .footer-brand {
+        width: 100%;
+        text-align: center;
+    }
+
+    .footer-brand .d-flex {
+        justify-content: center;
+    }
+
+    .footer-school {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .footer-actions {
+        width: 100%;
+        justify-content: space-between;
     }
 
     .back-to-top {
@@ -1527,5 +1565,12 @@ html {
 @media (prefers-color-scheme: dark) and (max-width: 992px) {
     .hero-section {
         padding: 7rem 0 4rem;
+    }
+}
+
+@media (prefers-color-scheme: dark) and (max-width: 576px) {
+    .password-generator-card #generatedPassword {
+        background: rgba(255, 255, 255, 0.08);
+        border-color: rgba(226, 237, 248, 0.26);
     }
 }
